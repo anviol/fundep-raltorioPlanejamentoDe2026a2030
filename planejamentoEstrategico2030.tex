@@ -1,6 +1,5 @@
 % ================================
-% Modelo de Relatório Técnico – Fundep / Fiotec
-% Compilar com: pdflatex (duas vezes)
+% Relatório Planejamento Estratégico 2026-2030 TI Fundep
 % ================================
 \documentclass[12pt,a4paper]{article}
 
@@ -20,6 +19,14 @@
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{array}
+\usepackage[acronym]{glossaries-extra}
+\usepackage{pdflscape}
+
+\makeglossaries
+
+% --- Siglas (Acrônimos)
+\newacronym{fundep}{Fundep}{Funda\c{c}\~ao de Desenvolvimento da Pesquisa}
+\newacronym{ti}{TI}{Tecnologia da Informação}
 
 \graphicspath{{img/}{./img/}}
 
@@ -88,18 +95,23 @@
   \vspace*{1cm}
 \end{titlepage}
 
+
 % --- Sumário
 \tableofcontents
+\newpage
+
+% --- Lista de siglas
+\printglossary[type=\acronymtype, title=Glossário]
 \newpage
 
 % --- Introdução
 \section{Introdução}
 
-O presente documento apresenta o Planejamento Estratégico de Tecnologia da Informação para o período 2026-2030, elaborado em resposta à solicitação da Diretoria da Fundação de Desenvolvimento da Pesquisa (Fundep). Este planejamento busca alinhar as iniciativas tecnológicas com os objetivos organizacionais, garantindo a modernização e a eficiência operacional da instituição.
+O presente documento apresenta o Planejamento Estratégico de \gls{ti} para o período 2026-2030, elaborado em resposta à solicitação da Diretoria da \glsfirst{fundep}. Este planejamento busca alinhar as iniciativas tecnológicas com os objetivos organizacionais, garantindo a modernização e a eficiência operacional da instituição.
 
 \subsection{Contexto e Justificativa}
 
-A transformação digital é essencial para o fortalecimento da capacidade institucional da Fundep. O setor de Tecnologia da Informação assume papel central nessa transformação, promovendo modernização de infraestrutura, otimização de processos e geração de valor aos stakeholders. Este planejamento estabelece as diretrizes e ações estratégicas que nortearão os investimentos e iniciativas de TI nos próximos cinco anos.
+A transformação digital é essencial para o fortalecimento da capacidade institucional da Fundep. O setor de \gls{ti} assume papel central nessa transformação, promovendo modernização de infraestrutura, otimização de processos e geração de valor aos stakeholders. Este planejamento estabelece as diretrizes e ações estratégicas que nortearão os investimentos e iniciativas de TI nos próximos cinco anos.
 
 \subsection{Objetivos do Planejamento}
 
@@ -110,11 +122,219 @@ Este documento tem como objetivos:
   \item Identificar projetos prioritários de modernização e transformação digital;
   \item Estabelecer indicadores de desempenho (KPIs) para acompanhamento de resultados;
   \item Alinhar os investimentos tecnológicos com as prioridades institutionais;
-  \item Garantir a sustentabilidade e a evolução contínua da infraestrutura de TI.
+  \item Garantir a sustentabilidade e a evolução contínua da infraestrutura de \gls{ti}.
 \end{itemize}
 
 \subsection{Escopo e Abrangência}
 
-O escopo deste planejamento abrange toda a área de Tecnologia da Informação da Fundep, incluindo infraestrutura de sistemas, operações, segurança da informação, modernização de aplicações e suporte ao usuário. O horizonte de planejamento estende-se de 2026 a 2030, com revisões anuais para ajuste de prioridades conforme a evolução organizacional.
+O escopo deste planejamento abrange toda a área de \gls{ti} da Fundep, incluindo infraestrutura de sistemas, operações, segurança da informação, modernização de aplicações e suporte ao usuário. O horizonte de planejamento estende-se de 2026 a 2030, com revisões anuais para ajuste de prioridades conforme a evolução organizacional.
+
+% --- A Tecnologia da Informação na Fundep
+
+\section{A Tecnologia da Informação da Fundep}
+
+A \gls{ti} da \glsfirst{fundep} deve ser um setor estratégico responsável por viabilizar, sustentar e impulsionar o cumprimento da missão institucional da Fundação. Sua atuação vai além do suporte tecnológico, exercendo papel fundamental na modernização dos processos, na segurança da informação, na eficiência operacional e na inovação dos serviços prestados à comunidade acadêmica, científica e administrativa da UFMG, apoiadas e sociedade.
+
+A identidade da \gls{ti} é definida pelo conjunto de suas atribuições, competências e responsabilidades, refletindo seu compromisso com a entrega de soluções tecnológicas confiáveis, seguras e alinhadas aos objetivos estratégicos da Fundep.
+
+\subsection{Missão da TI}
+
+A missão da \gls{ti} da \gls{fundep} é prover soluções tecnológicas e informacionais que viabilizem o alcance dos objetivos institucionais, oferecendo aos gestores, colaboradores e parceiros as ferramentas necessárias para o desempenho de suas atividades com eficiência, segurança, agilidade e qualidade.
+
+Nesse contexto, a \gls{ti} atua como facilitadora da transformação digital, promovendo inovação contínua, confiabilidade dos sistemas, proteção das informações e suporte às decisões estratégicas da organização.
+
+\subsection{Visão da TI}
+
+Ser reconhecida, até 2030, como uma \gls{ti} estratégica, confiável e orientada a valor, capaz de acelerar a transformação digital da \gls{fundep}, garantindo alta disponibilidade dos serviços, segurança da informação, eficiência operacional e evolução contínua dos produtos e sistemas, com foco na experiência do usuário e na sustentabilidade tecnológica.
+
+\subsection{Valores da TI}
+
+Os valores que orientam a atuação da \gls{ti} da \gls{fundep} são:
+
+\begin{itemize}
+  \item \textbf{Foco no usuário e no negócio:} compreender as necessidades das áreas, priorizar entregas que gerem valor e simplificar a jornada do usuário;
+  \item \textbf{Confiabilidade e qualidade:} operar com estabilidade, previsibilidade, boas práticas e qualidade técnica em tudo o que é entregue;
+  \item \textbf{Segurança e conformidade:} proteger informações e serviços, respeitando princípios de confidencialidade, integridade, disponibilidade e requisitos legais;
+  \item \textbf{Transparência e responsabilidade:} atuar com clareza na comunicação, rastreabilidade das decisões e compromisso com prazos e resultados;
+  \item \textbf{Colaboração e parceria:} trabalhar em conjunto com as áreas, promovendo diálogo, co-criação e alinhamento contínuo;
+  \item \textbf{Inovação com propósito:} inovar com responsabilidade, buscando soluções modernas que tragam ganhos reais e sustentáveis;
+  \item \textbf{Eficiência e melhoria contínua:} automatizar, padronizar e evoluir processos e serviços, reduzindo desperdícios e retrabalho;
+  \item \textbf{Desenvolvimento de pessoas:} fortalecer conhecimento técnico e comportamental, promovendo aprendizado contínuo e cultura de excelência.
+\end{itemize}
+
+\subsection{Papel Estratégico da TI}
+
+A \gls{ti} da \gls{fundep} posiciona-se como área estratégica de apoio ao negócio, sendo corresponsável pela sustentabilidade institucional e pela evolução dos serviços oferecidos pela Fundação. Seu papel envolve:
+
+\begin{itemize}
+  \item Sustentar a operação dos sistemas críticos da instituição, garantindo disponibilidade, desempenho e continuidade dos serviços;
+  \item Apoiar a tomada de decisão por meio da gestão, integração e disponibilização de informações confiáveis;
+  \item Promover a modernização tecnológica, alinhada às diretrizes estratégicas e às melhores práticas de mercado;
+  \item Assegurar a proteção dos ativos de informação, observando princípios de segurança, confidencialidade, integridade e conformidade;
+  \item Atuar de forma integrada com as áreas finalísticas e administrativas, compreendendo suas necessidades e traduzindo-as em soluções tecnológicas eficazes.
+\end{itemize}
+
+\subsection{Atuação da TI}
+
+A atuação da \gls{ti} compreende um conjunto amplo de atividades que suportam tanto a operação quanto a evolução da Fundep. Entre essas atividades, destacam-se:
+
+\begin{itemize}
+  \item Desenvolvimento, manutenção e evolução de sistemas de informação;
+  \item Gestão da infraestrutura tecnológica, incluindo servidores, redes, armazenamento e ambientes de hospedagem;
+  \item Monitoramento e suporte aos serviços de TI, assegurando níveis adequados de disponibilidade e atendimento;
+  \item Administração de ambientes de dados, integrações e fluxos de informação;
+  \item Implementação e manutenção de políticas e controles de segurança da informação;
+  \item Suporte técnico e orientação aos usuários no uso das soluções institucionais.
+\end{itemize}
+
+Essas atividades são executadas com foco em qualidade, padronização, melhoria contínua e alinhamento às necessidades institucionais.
+
+\subsection{Limites de Atuação da TI}
+
+Para garantir foco estratégico e eficiência operacional, a atuação da \gls{ti} está delimitada às atividades diretamente relacionadas à sua missão institucional. Demandas que não se enquadram nesse escopo, embora possam envolver tecnologia, devem ser avaliadas quanto à sua pertinência, evitando a dispersão de esforços e a sobrecarga operacional.
+
+Esse entendimento é fundamental para que a \gls{ti} concentre seus recursos nas atividades que geram maior valor para a Fundep, fortalecendo sua capacidade de planejamento, inovação e entrega de resultados.
+
+\section{Direcionadores Estratégicos e Objetivos da TI até 2030}
+
+O Planejamento Estratégico de Tecnologia da Informação da \gls{fundep} tem como base o nível de maturidade alcançado até final de 2025 e estabelece objetivos claros para evolução contínua da área até o horizonte de 2030. Esses objetivos foram construídos a partir do alinhamento com a missão, visão e valores institucionais da Fundação, bem como das necessidades identificadas junto às áreas finalísticas, administrativas e de gestão.
+
+A estratégia da \gls{ti} está estruturada em eixos que orientam as decisões, os investimentos e as prioridades da área, garantindo coerência, foco e geração de valor institucional.
+
+\subsection{Objetivo Estratégico Geral}
+
+Consolidar a \gls{ti} como uma área estratégica, integrada e orientada a valor, capaz de sustentar a operação da \gls{fundep}, apoiar a tomada de decisão, promover a transformação digital e garantir segurança, continuidade do negócio e eficiência operacional até 2030.
+
+\subsection{Eixos Estratégicos}
+
+Os objetivos da \gls{ti} estão organizados nos seguintes eixos estratégicos:
+
+\subsubsection{Gestão e Governança}
+
+Fortalecer a governança de tecnologia e dados, assegurando confiabilidade, qualidade da informação, continuidade do negócio e suporte efetivo à tomada de decisão, por meio de:
+\begin{itemize}
+  \item Governança, centralização e qualidade dos dados;
+  \item Aumento da confiabilidade da informação institucional;
+  \item Segurança da informação aplicada à gestão e à decisão;
+  \item Garantia da continuidade do negócio e disponibilidade dos sistemas.
+\end{itemize}
+
+\subsubsection{Pessoas}
+
+Desenvolver e reter talentos, promovendo um ambiente de aprendizado contínuo, colaboração e valorização das pessoas, com foco em:
+\begin{itemize}
+  \item Permanência e engajamento das pessoas de \gls{ti} na Fundação;
+  \item Capacitação técnica contínua, incluindo competências em dados e inteligência artificial;
+  \item Fortalecimento da cultura de excelência, integridade e responsabilidade.
+\end{itemize}
+
+\subsubsection{Infraestrutura e Segurança}
+
+Garantir uma infraestrutura tecnológica segura, resiliente e eficiente, que suporte a operação e a evolução dos sistemas institucionais, por meio de:
+\begin{itemize}
+  \item Aprimoramento contínuo da segurança da informação;
+  \item Redução de riscos operacionais e erros de negócio, especialmente aqueles baseados em comunicações não estruturadas;
+  \item Aumento da produtividade dos usuários com mobilidade entre unidades;
+  \item Sustentabilidade e otimização dos recursos tecnológicos.
+\end{itemize}
+
+\subsubsection{Transformação Digital}
+
+Promover a transformação digital da \gls{fundep}, modernizando processos, sistemas e modelos de trabalho, com foco em:
+\begin{itemize}
+  \item Automação de processos e geração de prestações de contas automáticas;
+  \item Implantação e evolução da arquitetura de dados e de arquivos;
+  \item Uso estratégico de dados, analytics, aprendizado de máquina e inteligência artificial;
+  \item Redução de custos operacionais e aumento da agilidade processual.
+\end{itemize}
+
+\subsubsection{Comunicação e Relacionamento}
+
+Aproximar a \gls{ti} das demais áreas da Fundação, fortalecendo a transparência, a confiança e a experiência dos usuários, por meio de:
+\begin{itemize}
+  \item Maior proximidade entre a \gls{ti} e as áreas finalísticas e administrativas;
+  \item Transparência e confiabilidade no atendimento e nas solicitações junto à \gls{ti};
+  \item Melhoria contínua da experiência tecnológica de coordenadores de projetos e gestores;
+  \item Evolução dos portais e canais digitais institucionais.
+\end{itemize}
+
+\subsection{Evolução Estratégica a partir de 2026}
+
+A partir dos avanços consolidados até 2026, como o fortalecimento da segurança virtual, a implantação inicial da arquitetura de dados e a automação de processos críticos, a \gls{ti} projeta uma trajetória de evolução contínua até 2030, priorizando iniciativas que ampliem a maturidade digital, a integração entre sistemas, a inteligência organizacional e a sustentabilidade tecnológica da \gls{fundep}.
+
+\subsubsection{Desenvolver Pessoas e Garantir Sustentabilidade do Conhecimento em TI}
+
+Assegurar a permanência, capacitação e evolução contínua das pessoas de \gls{ti}, garantindo qualidade nas entregas, continuidade do atendimento e sustentação do crescimento institucional da \gls{fundep}, sem que a área se torne um entrave aos processos, mas, ao contrário, um agente ativo de desenvolvimento organizacional.
+
+Este objetivo parte do entendimento de que a \gls{ti} está presente, direta ou indiretamente, em praticamente todos os processos da Fundação. Não há hoje iniciativas institucionais relevantes que não dependam de tecnologia. Diante desse cenário, torna-se essencial estruturar a área de forma profissional, organizada e sustentável, assegurando capacidade de resposta, previsibilidade e qualidade, mesmo diante do aumento contínuo do volume e da complexidade das demandas.
+
+O foco deste objetivo \textbf{não está nas tarefas executadas, mas na forma como o trabalho é organizado}, acompanhado e evoluído ao longo do tempo, garantindo padronização, clareza de papéis, maturidade organizacional e desenvolvimento das pessoas.
+
+\paragraph{Enquadramento Estratégico}\mbox{}\\
+
+Este objetivo se justifica e se estrutura para que as seguintes características sejam mitigadas ou ampliadas, conforme o caso:
+
+\begin{itemize}
+  \item \textbf{Fortaleza:} ampliar o grande conhecimento técnico da equipe e amadurecimento do setor dentro da Fundação;
+  \item \textbf{Ameaça:} reduzir o risco institucional associado à perda de colaboradores estratégicos, à concentração de conhecimento e à descontinuidade de serviços essenciais;
+  \item \textbf{Oportunidades:} estruturar a área para absorver o alto volume de demandas e a crescente dependência tecnológica da Fundação;
+  \item \textbf{Fraquezas:} corrigir a ausência de acompanhamento individual contínuo dos colaboradores, garantindo desenvolvimento técnico, alinhamento comportamental e evolução profissional.
+\end{itemize}
+
+\paragraph{Diretrizes de Atuação}\mbox{}\\
+
+Para o alcance deste objetivo, a \gls{ti} deverá adotar as seguintes diretrizes:
+
+\begin{itemize}
+  \item Estruturar claramente as funções, responsabilidades e interfaces entre os times e papéis da \gls{ti};
+  \item Consolidar lideranças técnicas e de pessoas, com responsabilidades explícitas de acompanhamento, orientação e desenvolvimento dos colaboradores;
+  \item Estabelecer práticas contínuas de acompanhamento individual, feedback e evolução profissional;
+  \item Promover capacitação alinhada às competências estratégicas para o futuro, incluindo dados, arquitetura, segurança e inteligência artificial;
+  \item Garantir que o crescimento da área ocorra de forma organizada, sustentável e alinhada às necessidades reais da Fundação.
+\end{itemize}
+
+\paragraph{Meta Estratégica}\mbox{}\\
+
+Como meta estruturante deste objetivo, está previsto o \textbf{redesenho do organograma da Tecnologia da Informação da Fundep}, contemplando:
+
+\begin{itemize}
+  \item Definição clara de papéis, responsabilidades e níveis de atuação;
+  \item Redimensionamento das funções conforme as necessidades atuais e futuras da Fundação;
+  \item Consolidação de lideranças técnicas e de gestão de pessoas;
+  \item Estabelecimento de uma estrutura que favoreça a continuidade do conhecimento, a qualidade das entregas e a previsibilidade operacional.
+\end{itemize}
+
+O organograma pretendido da \gls{ti} será apresentado nesta seção, podendo ser visto no anexo \ref{anx:organograma-ti}, como parte integrante do Planejamento Estratégico, servindo como referência para a evolução organizacional da área.
+
+\paragraph{Aspectos Orçamentários}\mbox{}\\
+
+A implementação inicial deste objetivo não requer investimento financeiro imediato, uma vez que está fundamentada em reorganização interna, definição de papéis e amadurecimento de práticas de gestão.
+
+Entretanto, para sua consolidação ao longo do período de planejamento, serão necessários aportes financeiros relacionados principalmente a:
+\begin{itemize}
+  \item Capacitação técnica e comportamental das equipes;
+  \item Programas de desenvolvimento de lideranças;
+  \item Adequação de políticas de remuneração e retenção de talentos estratégicos.
+\end{itemize}
+
+Esses investimentos serão tratados de forma planejada e progressiva, alinhados à disponibilidade orçamentária e às prioridades institucionais da \gls{fundep}.
+
+\clearpage
+\section{Anexos}
+\label{sec:anexos}
+
+\subsection{Organograma sugerido da TI}
+\label{anx:organograma-ti}
+
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{img/organograma sugerido.png}
+  \caption{Organograma sugerido para a área de \gls{ti} da \gls{fundep}.}
+  \label{fig:organograma-sugerido-ti}
+\end{figure}
+\end{landscape}
+
+\clearpage
 
 \end{document}
