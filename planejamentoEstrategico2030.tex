@@ -1,0 +1,120 @@
+% ================================
+% Modelo de Relatório Técnico – Fundep / Fiotec
+% Compilar com: pdflatex (duas vezes)
+% ================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Pacotes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{array}
+
+\graphicspath{{img/}{./img/}}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+
+% --- Layout
+\geometry{margin=2.5cm}
+\onehalfspacing
+\setlist[itemize]{left=0pt,itemsep=4pt,topsep=4pt}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+}
+
+% --- Cabeçalho/Rodapé
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textit{\ReportProject}}
+\rhead{\textit{\ReportTitle}}
+\cfoot{\thepage/\pageref*{LastPage}}
+\setlength{\headheight}{15pt}
+
+% --- Títulos mais compactos
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% --- Campos parametrizados
+\newcommand{\ReportTitle}{Planejamento Estratégico 2026-2030}
+\newcommand{\ReportProject}{Tecnologia da Informação}
+\newcommand{\ReportOrg}{Fundação de Desenvolvimento da Pesquisa}
+\newcommand{\ReportAuthor}{André Vinícius de Oliveira}
+\newcommand{\ReportRole}{Gerente de TI}
+\newcommand{\ReportPeriod}{\textit{2026}}
+\newcommand{\ReportVersion}{v0.1}
+\newcommand{\ReportDate}{\today}
+
+\begin{document}
+
+% --- Capa
+\begin{titlepage}
+  \centering
+  % (Opcional) insira logos quando quiser:
+  % \includegraphics[height=1.4cm]{logo-fundep.png}\hfill
+  % \includegraphics[height=1.4cm]{logo-fiotec.png}
+
+  \vspace*{3cm}
+  {\Large \textbf{\ReportOrg}\par}
+  \vspace{0.8cm}
+  {\huge \textbf{\ReportTitle}\par}
+  \vspace{0.4cm}
+  {\Large \textbf{\ReportProject}\par}
+  \vspace{0.8cm}
+  {\large Período de referência: \ReportPeriod \par}
+  \vspace{0.8cm}
+  \begin{tabular}{>{\bfseries}p{3.2cm}p{10.5cm}}
+    Elaborado por: & \ReportAuthor \\
+    Função:        & \ReportRole \\
+    Versão:        & \ReportVersion \\
+    Data:          & \ReportDate \\
+  \end{tabular}
+
+  \vfill
+  \vspace*{1cm}
+\end{titlepage}
+
+% --- Sumário
+\tableofcontents
+\newpage
+
+% --- Introdução
+\section{Introdução}
+
+O presente documento apresenta o Planejamento Estratégico de Tecnologia da Informação para o período 2026-2030, elaborado em resposta à solicitação da Diretoria da Fundação de Desenvolvimento da Pesquisa (Fundep). Este planejamento busca alinhar as iniciativas tecnológicas com os objetivos organizacionais, garantindo a modernização e a eficiência operacional da instituição.
+
+\subsection{Contexto e Justificativa}
+
+A transformação digital é essencial para o fortalecimento da capacidade institucional da Fundep. O setor de Tecnologia da Informação assume papel central nessa transformação, promovendo modernização de infraestrutura, otimização de processos e geração de valor aos stakeholders. Este planejamento estabelece as diretrizes e ações estratégicas que nortearão os investimentos e iniciativas de TI nos próximos cinco anos.
+
+\subsection{Objetivos do Planejamento}
+
+Este documento tem como objetivos:
+
+\begin{itemize}
+  \item Definir a visão e estratégia de tecnologia para a Fundep no período 2026-2030;
+  \item Identificar projetos prioritários de modernização e transformação digital;
+  \item Estabelecer indicadores de desempenho (KPIs) para acompanhamento de resultados;
+  \item Alinhar os investimentos tecnológicos com as prioridades institutionais;
+  \item Garantir a sustentabilidade e a evolução contínua da infraestrutura de TI.
+\end{itemize}
+
+\subsection{Escopo e Abrangência}
+
+O escopo deste planejamento abrange toda a área de Tecnologia da Informação da Fundep, incluindo infraestrutura de sistemas, operações, segurança da informação, modernização de aplicações e suporte ao usuário. O horizonte de planejamento estende-se de 2026 a 2030, com revisões anuais para ajuste de prioridades conforme a evolução organizacional.
+
+\end{document}

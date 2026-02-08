@@ -1,0 +1,76 @@
+# =========================
+# Arquivos auxiliares LaTeX
+# =========================
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.xdy
+
+# =========================
+# Arquivos temporários
+# =========================
+*.tmp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# =========================
+# PDF (ignore se quiser versionar o PDF)
+# =========================
+*.pdf
+
+# =========================
+# Mas NÃO ignora PDFs dentro da pasta arquivos
+# =========================
+!arquivos/
+!arquivos/**/*.pdf
+
+# =========================
+# Latexmk
+# =========================
+.latexmkrc
+latexmk.out
+
+# =========================
+# Pastas comuns de build
+# =========================
+build/
+out/
+
+# =========================
+# Logs e caches
+# =========================
+*.blg
+*.bbl
+
+# =========================
+# VS Code (se usar)
+# =========================
+.vscode/
+
+# =========================
+# Mac / Windows
+# =========================
+.DS_Store
+Thumbs.db
