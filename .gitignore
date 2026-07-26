@@ -24,6 +24,7 @@
 *.glo
 *.gls
 *.xdy
+*.ist
 
 # =========================
 # Arquivos temporários
@@ -49,7 +50,7 @@
 # =========================
 # Latexmk
 # =========================
-.latexmkrc
+# .latexmkrc é versionado: é ele que faz o makeglossaries rodar.
 latexmk.out
 
 # =========================
@@ -65,9 +66,12 @@ out/
 *.bbl
 
 # =========================
-# VS Code (se usar)
+# VS Code
 # =========================
-.vscode/
+# Ignora configuração pessoal, mas versiona a receita de build compartilhada.
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 
 # =========================
 # Mac / Windows
