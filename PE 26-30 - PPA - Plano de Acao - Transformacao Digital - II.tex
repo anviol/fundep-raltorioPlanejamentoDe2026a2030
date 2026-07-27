@@ -1,0 +1,289 @@
+% ============================================================
+% PE 26-30 - PPA - Plano de Ação - Transformação Digital - II
+% Reprodução em LaTeX do documento Word homônimo (arquivos/)
+% Compilar com: latexmk (pdflatex)
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Pacotes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{mathptmx}            % Fonte Times (equivalente à Times New Roman)
+\usepackage[a4paper,top=2cm,bottom=2.5cm,left=2cm,right=2cm,headheight=14pt,headsep=0.45cm,footskip=1.3cm]{geometry}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{img/}{./img/}}
+
+% --- Cores do documento Word
+\definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
+\definecolor{azulAtividade}{HTML}{2F5496} % títulos das atividades 01..04
+\definecolor{azulClaro}{HTML}{D9E2F3}    % coluna esquerda da tabela de identificação
+\definecolor{azulCabecalho}{HTML}{9CC2E5} % cabeçalho da tabela resumo
+\definecolor{azulZebra}{HTML}{EAF0FA}    % zebra da coluna Item
+\definecolor{cinzaClaro}{HTML}{F2F2F2}   % zebra das linhas do resumo
+\definecolor{azulVivo}{HTML}{0070C0}     % anos / TOTAL do cronograma e link
+\definecolor{azulCelula}{HTML}{C0E6F5}   % linha de trimestres do cronograma
+\definecolor{cinzaMedio}{HTML}{BFBFBF}   % linhas de atividade do cronograma
+\definecolor{cinzaE8}{HTML}{E8E8E8}      % células de valores do cronograma
+\definecolor{bordaCinza}{HTML}{BFBFBF}   % bordas da tabela de identificação
+\definecolor{bordaEscura}{HTML}{595959}  % bordas da tabela resumo
+
+% --- Parágrafos como no Word (sem recuo, espaço entre parágrafos, justificado)
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\linespread{1.08}
+
+% --- Cabeçalho "Página N" (a partir da página 2) e rodapé com imagem
+\fancypagestyle{corpo}{%
+  \fancyhf{}%
+  \fancyhead[L]{\fontsize{10}{12}\selectfont Página \thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{corpo}
+
+% Papel timbrado Fundep (image1.png do Word) como fundo de página
+% inteira em TODAS as páginas — inclui a faixa lateral azul com
+% "fundep.ufmg.br". A faixa de rodapé do próprio timbrado é coberta
+% por um retângulo branco e substituída pela imagem de rodapé
+% (image2.jpg do Word), centralizada horizontalmente na base.
+\AddToShipoutPictureBG{%
+  \put(0,0){\includegraphics[width=\paperwidth,height=\paperheight]{timbrado_a4_fundep.png}}%
+  \AtPageLowerLeft{\color{white}\rule{\paperwidth}{2.3cm}}%
+  \AtPageLowerLeft{%
+    \makebox[\paperwidth][c]{\raisebox{0.15cm}{\includegraphics[width=18cm]{rodape_fundep.jpg}}}%
+  }%
+}
+
+% --- Títulos de seção (13pt, negrito, azul escuro)
+\newcommand{\secao}[1]{%
+  \par\vspace{6pt}%
+  {\noindent\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont #1}%
+  \par\vspace{2pt}%
+}
+
+% --- Título de atividade (12pt, negrito, azul médio)
+\newcommand{\atividade}[1]{%
+  \par{\bfseries\color{azulAtividade}#1}\par
+}
+
+% --- Listas com letras "a)", "b)" como no Word
+\setlist[enumerate,1]{label=\alph*),leftmargin=1.27cm,itemsep=2pt,topsep=2pt}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+% --- Títulos
+\begin{center}
+  {\bfseries\color{azulTitulo}\fontsize{17}{20}\selectfont PLANO DE AÇÃO}\\[6pt]
+  {\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont Planejamento Estratégico Fundep - Gestão 2026 a 2030}
+\end{center}
+
+\secao{IDENTIFICAÇÃO DO PLANO}
+
+\begingroup
+\small
+\arrayrulecolor{bordaCinza}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|>{\cellcolor{azulClaro}\bfseries}p{0.265\textwidth}|p{0.665\textwidth}|}
+\hline
+DIRETRIZ & Transformação Digital \\
+\hline
+AÇÃO & Desenvolver repositório de dados unificados confiáveis para atendimento de toda Fundep \\
+\hline
+RESPONSÁVEL & André Oliveira / Gerente de Tecnologia da Informação \\
+\hline
+FORTALEZA/PROBLEMA & Fragilidade no atendimento legal em segurança de dados / As necessidades técnicas digitais e de segurança são subestimadas comparadas as vontades dos usuários \\
+\hline
+OBJETIVO(S) ESTRATÉGICO(S) VINCULADO(S) & Fortalecimento da Segurança da Informação com Tecnologias Digitais \\
+\hline
+META(S) OPERACIONAL(IS) VINCULADA(S) & Garantir que todos os processos tenham dados confiáveis para operação da Fundep \\
+\hline
+PERÍODO DE ACOMPANHAMENTO & Agosto de 2026 a dezembro de 2029 \\
+\hline
+ÁREAS ENVOLVIDAS & Conselho Diretor, Tecnologia da Informação, CIAs, Prestação de Contas, Compras, Importação, Infraestrutura e Logística, Gestão de Documentos, Administração de Pessoal, Gestão de Pessoas, Negócios e Parcerias, Financeiro e Contabilidade, Compliance, Jurídico, Comunicação e Marketing, Inovação, Engenharia, Gestão de Programas, Gestão de Concursos. \\
+\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+\secao{JUSTIFICATIVA}
+
+Todas as atividades desenvolvidas para o alcance da missão da fundação dependem de dados e informações e, ao mesmo tempo, geram dados e informações. Para que esse ciclo funcione bem, é necessário que esses dados sejam confiáveis e, de preferência, unificados em um repositório que possibilite a consulta e disponibilização de resultados para toda a Fundep. Esse plano de ação depende da conclusão do Plano de Ação Gestão de Processos da Diretriz Gestão, que, ao entregar o diagnóstico dos processos, teremos enumerados a quantidade e descrição dos pontos a serem monitorados.
+
+\secao{ATIVIDADES}
+
+\atividade{01. Estudo do relatório do Plano de Ação Gestão de Processos}
+
+Antes de passar por auditoria, será necessário compreender a situação atual da fundação, por meio da contratação de uma consultoria especializada, que elaborará relatório detalhado com os pontos fracos e fortes.
+
+\begin{enumerate}
+  \item Definir empresa por meio de pesquisa.
+
+        Realizar pesquisa para escolha da melhor empresa cujo espoco de atuação se adeque à realidade da fundação.
+  \item Acompanhar atuação da empresa na Fundep.
+
+        Formar equipe interna composta pelas áreas interessadas (TI, DPO e Compliance) para prestar informações à consultoria e acompanhar as entregas.
+\end{enumerate}
+
+\atividade{02. Planejamento do repositório de dados}
+
+% Bloco em negrito, como no documento original
+{\bfseries
+Para acompanhamento das atividades da consultoria, e para manutenção das atividades de cibersegurança na Fundep, será contratada e formada uma equipe de Segurança da Informação, que irá atuar preventiva e ativamente.
+
+\begin{enumerate}
+  \item Contratar profissionais.
+
+        Formar equipe de Segurança da Informação, vinculada à Gerência de TI, por meio da abertura de vagas e seleção de candidatos.
+  \item Estruturar as atividades e delegar funções
+
+        Definição das funções da equipe de Segurança da Informação, para realização de monitoramento contínuo, prevenção e atuação em incidentes, gestão de vulnerabilidades, e outras atividades referentes à segurança da informação.
+\end{enumerate}
+}
+
+\atividade{03. Desenvolvimento do repositório de dados}
+
+O relatório realizado pela consultoria embasará as tratativas a implementadas nessa atividade. Cada ponto levantado pela consultoria contratada poderá gerar novos planos de ação, a depender da complexidade da atividade.
+
+\begin{enumerate}
+  \item Atuação no relatório da consultoria.
+
+        Atendimento aos pontos levantados pela consultoria, com a equipe de segurança da informação atuando tecnicamente, e DPO, Compliance e TI atuando estrategicamente na revisão de processos, elaboração de políticas e revisão de procedimentos que se fizerem necessários.
+  \item Validação com Conselho Diretor para auditoria.
+
+        Levar relatório comparativo da consultoria ao Conselho Diretor, com a implementação das melhorias realizadas, para preparação para auditoria.
+\end{enumerate}
+
+\atividade{04. Realizar auditoria}
+
+Após implementar as correções apontadas pela consultoria, a fundação estará habilitada a ser auditada por uma das seis grandes empresas. O foco da auditoria será a segurança da informação e a conformidade com a LGPD.
+
+\begin{enumerate}
+  \item Orçar e realizar contratação.
+
+        Realizar pesquisa e cotação de empresas para desenvolvimento de auditoria em segurança da informação.
+  \item Apoiar o trabalho da auditoria.
+
+        Formar equipe interna, com as áreas de Compliance, DPO e TI, responsável por acompanhar e prestar suporte, fornecendo documentação e acesso à auditoria.
+  \item Receber parecer da auditoria.
+\end{enumerate}
+
+\secao{RESUMO DAS ATIVIDADES}
+
+\begingroup
+\footnotesize
+\arrayrulecolor{bordaEscura}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{4pt}
+% Larguras proporcionais às do Word (709/6521/3260/805/908/2681)
+\newcommand{\linhaAtividade}[5]{%
+  \cellcolor{azulTitulo}{\bfseries\color{white}#1} &
+  \multicolumn{2}{p{0.585\textwidth}|}{\cellcolor{azulTitulo}{\bfseries\color{white}#2}} &
+  \cellcolor{azulTitulo}{\bfseries\color{white}#3} &
+  \cellcolor{azulTitulo}{\bfseries\color{white}#4} &
+  \cellcolor{azulTitulo}{\bfseries\color{white}#5} \\}
+\begin{tabular}{|>{\centering\arraybackslash}p{0.045\textwidth}|p{0.40\textwidth}|p{0.17\textwidth}|>{\centering\arraybackslash}p{0.05\textwidth}|>{\centering\arraybackslash}p{0.055\textwidth}|>{\centering\arraybackslash}p{0.145\textwidth}|}
+\hline
+\rowcolor{azulCabecalho}
+\multicolumn{1}{|c|}{\bfseries Item} &
+\multicolumn{1}{c|}{\bfseries Descrição} &
+\multicolumn{1}{c|}{\bfseries Resultados Esperados} &
+\multicolumn{1}{c|}{\bfseries Início} &
+\multicolumn{1}{c|}{\bfseries Término} &
+\multicolumn{1}{c|}{\bfseries Responsável} \\
+\hline
+\linhaAtividade{01}{CONTRATAR CONSULTORIA DE UMA DAS SEIS MAIORES EMPRESAS DE AUDITORIA}{08/26}{02/27}{James Mota}
+\hline
+\cellcolor{azulZebra}01.a & \cellcolor{cinzaClaro}Definir empresa por meio de pesquisa & \cellcolor{cinzaClaro}Empresa escolhida & \cellcolor{cinzaClaro}08/26 & \cellcolor{cinzaClaro}08/26 & \cellcolor{cinzaClaro}\itshape James \\
+\hline
+\cellcolor{azulZebra}01.b & Acompanhar atuação da empresa na fundação & Entrega de relatório de consultoria & 09/26 & 02/27 & \itshape James, André, Flávia \\
+\hline
+\linhaAtividade{02}{CONTRATAR E FORMAR EQUIPE DE SEGURANÇA DA INFORMAÇÃO}{08/26}{10/26}{André Oliveira}
+\hline
+\cellcolor{azulClaro}02.a & \bfseries Contratar profissionais. & Equipe formada. & 08/26 & 10/26 & \itshape André, Débora \\
+\hline
+\cellcolor{azulClaro}02.b & \cellcolor{cinzaClaro}\bfseries Estruturar as atividades e delegar funções & \cellcolor{cinzaClaro}Funções e responsabilidades definidas. & \cellcolor{cinzaClaro}08/26 & \cellcolor{cinzaClaro}08/26 & \cellcolor{cinzaClaro}\itshape André \\
+\hline
+\linhaAtividade{03}{IMPLEMENTAR MELHORIAS}{02/27}{08/29}{André Oliveira}
+\hline
+\cellcolor{azulClaro}03.a & Atuação no relatório da consultoria. & Relatório com melhorias implementadas. & 02/27 & 07/29 & \itshape André \\
+\hline
+\cellcolor{azulClaro}03.b & Validação com Conselho Diretor para auditoria. & Relatório de melhorias validado. & 07/29 & 08/29 & \itshape André, James, Flávia \\
+\hline
+\linhaAtividade{04}{REALIZAR AUDITORIA}{08/29}{12/29}{James Mota}
+\hline
+\cellcolor{azulClaro}04.a & Orçar e realizar contratação. & Empresa escolhida. & 08/29 & 08/29 & \itshape James, Flávia, André \\
+\hline
+\cellcolor{azulClaro}04.b & Apoiar o trabalho da auditoria & Conclusão da auditoria. & 09/29 & 12/29 & \itshape James, Flávia, André \\
+\hline
+\cellcolor{azulClaro}04.c & Receber relatório da auditoria. & Relatório aprovado sem ressalvas. & 12/29 & 12/29 & \itshape James, Flávia, André \\
+\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+\secao{CRONOGRAMA FÍSICO-FINANCEIRO}
+
+\begingroup
+% Tabela construída no tamanho natural (17 colunas) e reduzida
+% para a largura do texto, como o quadro largo do Word.
+\newcolumntype{Q}{>{\centering\arraybackslash}p{1.15cm}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{0.7cm}|p{5.4cm}|*{15}{Q|}}
+\cline{3-17}
+\multicolumn{2}{c|}{} &
+\multicolumn{2}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2026} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2027} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2028} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2029} &
+\multicolumn{1}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2030} \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulCelula}\bfseries Atividade} &
+\cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 01 - Atividade xxxx} &
+\multicolumn{7}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 120 mil} & & & & & & & & \\
+\hline
+ & a -- Subatividade xxxx & \multicolumn{3}{c|}{\cellcolor{cinzaE8}R\$ 0,00} & & & & & & & & & & & & \\
+\hline
+ & b -- Subatividade xxxx & & & \multicolumn{5}{c|}{\cellcolor{cinzaE8}R\$ 120 mil} & & & & & & & & \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 02 - Atividade xxxx} &
+ & & & & & \multicolumn{7}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 120 mil} & & & \\
+\hline
+ & a -- Subatividade xxxx & & & & & & \multicolumn{3}{c|}{\cellcolor{cinzaE8}R\$ 0,00} & & & & & & & \\
+\hline
+ & b -- Subatividade xxxx & & & & & & & & \multicolumn{5}{c|}{\cellcolor{cinzaE8}R\$ 120 mil} & & & \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 03 - Atividade xxxx} &
+ & & & & & & & & & \multicolumn{2}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 150 mil} & & & & \\
+\hline
+ & a -- Atividade xxxx & & & & & & & & & & \multicolumn{2}{c|}{\cellcolor{cinzaE8}R\$ 150 mil} & & & & \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulVivo}\bfseries\color{white}TOTAL} &
+\multicolumn{15}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 390 mil} \\
+\hline
+\end{tabular}%
+}
+\endgroup
+
+\vspace{8pt}
+{\color{azulVivo}Link para planilha com modelo de orçamento (baixar e editar na sua máquina, não editar o arquivo online):}
+
+\href{https://fundep.sharepoint.com/:x:/s/msteams_d9be15_927448/IQDlWOOVcV0ySa6pQ8AKcar6AXgZc2DPSjLTqQ-oyDIG_2Y?e=EOus7n}{PE 26-30 - PPA - Modelo cronograma fisico-financeiro.xlsx}
+
+\end{document}
