@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(sips -s format png --out \"/private/tmp/claude-502/-Users-andreoliveira-dev-fundep-raltorioPlanejamentoDe2026a2030/e7480a38-c7b3-4427-b3d6-38f484e45a09/scratchpad/p8.png\" \"PE 26-30 - PPA - Plano de Acao - Transformacao Digital - II.pdf\")",
+      "Bash(sips -c 300 700 --cropOffset 1330 1900 /private/tmp/claude-502/-Users-andreoliveira-dev-fundep-raltorioPlanejamentoDe2026a2030/e7480a38-c7b3-4427-b3d6-38f484e45a09/scratchpad/hi8.png --out /private/tmp/claude-502/-Users-andreoliveira-dev-fundep-raltorioPlanejamentoDe2026a2030/e7480a38-c7b3-4427-b3d6-38f484e45a09/scratchpad/right8.png)",
+      "Bash(awk 'NR>=460 && NR<=505' \"PE 26-30 - PPA - Plano de Acao - Transformacao Digital - II.tex\")",
+      "Bash(awk 'NR>=464 && NR<=502' \"PE 26-30 - PPA - Plano de Acao - Transformacao Digital - II.tex\")",
+      "Bash(sed -i '' 's/^\\\\\\\\renewcommand{\\\\\\\\arraystretch}{1.55}$/\\\\\\\\renewcommand{\\\\\\\\arraystretch}{1.45}/' \"PE 26-30 - PPA - Plano de Acao - MODELO.tex\")",
+      "Bash(sed -i '' 's/^\\\\\\\\renewcommand{\\\\\\\\arraystretch}{1.4}$/\\\\\\\\renewcommand{\\\\\\\\arraystretch}{1.35}/' \"PE 26-30 - PPA - Plano de Acao - MODELO.tex\")",
+      "Read(//var/folders/b0/6f8983pn4vzgftz0g9s1yqj40000gp/T/**)",
+      "Read(//private/var/folders/b0/6f8983pn4vzgftz0g9s1yqj40000gp/T/**)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
