@@ -1,0 +1,490 @@
+% ============================================================
+% PE 26-30 - PPA - Adequação dos Sistemas
+% PE 26-30 - PPA - Planejamento Estratégico Fundep, Gestão 2026 a 2030
+%
+% Plano de ação criado a partir de
+% "PE 26-30 - PPA - Plano de Acao - MODELO.tex".
+%
+% AÇÃO: Adequar os sistemas digitais da Fundep aos processos
+% padrão definidos pela instituição.
+%
+% Datas, responsáveis e valores das atividades 02.b, 04.b e 05
+% vieram de "PE 26-30 - PPA - Plano de Acao - Transformacao
+% Digital - II.tex". A atividade 05 é a atividade de controle e
+% monitoramento das comunicações daquele plano, reescrita com foco
+% no atendimento ao público externo (sem citar WhatsApp) e com o
+% valor recalculado para o período até dezembro/2029.
+% Campos sem fonte estão como (a preencher).
+%
+% Compilar com: latexmk "PE 26-30 - PPA - Adequação dos Sistemas.tex"
+%
+% Regra do repositório: UM plano de ação (uma única AÇÃO) por arquivo.
+% Regra de escrita: não usar travessões (---, --, em dash) em texto corrido.
+% Dados inexistentes: marcar como "(a preencher)" ou "(a definir)", nunca inventar.
+%
+% Tipografia do Word reproduzida aqui (Times New Roman em tudo):
+%   17pt negrito 1F4E79, centralizado ..... PLANO DE AÇÃO
+%   13pt negrito 1F4E79, centralizado ..... subtítulo da gestão
+%   13pt negrito 1F4E79 ................... títulos de seção
+%   12pt negrito 2F5496 ................... títulos das atividades
+%   12pt, justificado, entrelinha 1,5 ..... texto corrido
+%   10pt ......................... tabela de identificação, subatividades
+%   9,5pt negrito ................. cabeçalho do Resumo das Atividades
+%   12pt negrito .................. anos, atividades e TOTAL do cronograma
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Pacotes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{mathptmx}            % Fonte Times (equivalente à Times New Roman)
+\usepackage[a4paper,top=2cm,bottom=2.5cm,left=2cm,right=2cm,headheight=14pt,headsep=0.45cm,footskip=1.3cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{img/}{./img/}}
+
+% --- Versão do plano (atualizar a cada alteração significativa)
+\newcommand{\PlanoVersao}{0.1}
+
+% --- Cores do documento Word
+\definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
+\definecolor{azulAtividade}{HTML}{2F5496} % títulos das atividades 01..NN
+\definecolor{azulClaro}{HTML}{D9E2F3}    % coluna esquerda da tabela de identificação
+\definecolor{azulCabecalho}{HTML}{9CC2E5} % cabeçalho da tabela resumo
+\definecolor{azulZebra}{HTML}{EAF0FA}    % zebra da coluna Item
+\definecolor{cinzaClaro}{HTML}{F2F2F2}   % zebra das linhas do resumo
+\definecolor{azulVivo}{HTML}{0070C0}     % anos / TOTAL do cronograma e link
+\definecolor{azulCelula}{HTML}{C0E6F5}   % linha de trimestres do cronograma
+\definecolor{cinzaMedio}{HTML}{BFBFBF}   % linhas de atividade do cronograma
+\definecolor{cinzaE8}{HTML}{E8E8E8}      % células de valores do cronograma
+\definecolor{bordaCinza}{HTML}{BFBFBF}   % bordas da tabela de identificação
+\definecolor{bordaEscura}{HTML}{595959}  % bordas externas da tabela resumo
+
+% --- Parágrafos como no Word: sem recuo, justificados, entrelinha 1,5
+%     e 12pt de espaço entre parágrafos (Word: espaçamento depois = 12pt).
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+\onehalfspacing
+
+% --- Cabeçalho "Página N" (a partir da página 2) e rodapé com imagem
+\fancypagestyle{corpo}{%
+  \fancyhf{}%
+  \fancyhead[L]{\fontsize{10}{12}\selectfont Página \thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{corpo}
+
+% --- Papel timbrado Fundep (image1.png do Word) como fundo de página.
+% Em retrato, o timbrado cobre a página inteira. Em paisagem, ele é
+% encaixado pela altura e alinhado à direita, para que a faixa lateral
+% com "fundep.ufmg.br" fique na borda direita sem distorcer a imagem
+% (o timbrado original é um A4 retrato). Em ambos os casos a faixa de
+% rodapé do timbrado é coberta por um retângulo branco e substituída
+% pela imagem de rodapé (image2.jpg do Word), centralizada na base.
+\newif\ifpaisagem
+\newcommand{\razaoTimbrado}{0.70724}   % 2481/3508 px do timbrado
+\AddToShipoutPictureBG{%
+  \ifpaisagem
+    \put(\LenToUnit{\dimexpr\paperwidth-\razaoTimbrado\paperheight\relax},0){%
+      \includegraphics[height=\paperheight]{timbrado_a4_fundep.png}}%
+  \else
+    \put(0,0){\includegraphics[width=\paperwidth,height=\paperheight]{timbrado_a4_fundep.png}}%
+  \fi
+  \AtPageLowerLeft{\color{white}\rule{\paperwidth}{2.3cm}}%
+  \AtPageLowerLeft{%
+    \makebox[\paperwidth][c]{\raisebox{0.15cm}{\includegraphics[width=18cm]{rodape_fundep.jpg}}}%
+  }%
+}
+
+% --- Quebra de seção com mudança de orientação.
+% O Word usa duas seções: retrato para a identificação, a justificativa
+% e as atividades; paisagem para o Resumo das Atividades e o Cronograma
+% Físico-Financeiro, que assim cabem em tamanho natural, sem redução.
+% Margens da seção paisagem: 2cm em cima e nas laterais, 3cm embaixo.
+\makeatletter
+\newcommand{\iniciaPaisagem}{%
+  \clearpage
+  \paisagemtrue
+  \global\pdfpagewidth=297mm \global\pdfpageheight=210mm
+  \global\paperwidth=297mm   \global\paperheight=210mm
+  \global\textwidth=25.7cm   \global\textheight=16cm
+  \global\hsize=\textwidth \global\linewidth=\textwidth
+  \global\columnwidth=\textwidth
+  \global\oddsidemargin=\dimexpr2cm-1in\relax
+  \global\evensidemargin=\oddsidemargin
+  \global\topmargin=\dimexpr2cm-1in-\headheight-\headsep\relax
+  \global\vsize=\textheight \global\@colht=\textheight
+  \global\@colroom=\textheight
+}
+\makeatother
+
+% --- Títulos de seção (13pt, negrito, azul escuro)
+% Word: espaçamento antes 16pt, depois 8pt.
+\newcommand{\secao}[1]{%
+  \par\vspace{\dimexpr16pt-\parskip\relax}%
+  {\noindent\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont #1}%
+  \par\vspace{\dimexpr8pt-\parskip\relax}%
+}
+
+% --- Título de atividade (12pt, negrito, azul médio)
+\newcommand{\atividade}[1]{%
+  \par\vspace{\dimexpr16pt-\parskip\relax}%
+  {\bfseries\color{azulAtividade}#1}%
+  \par\vspace{\dimexpr8pt-\parskip\relax}%
+}
+
+% --- Listas de subatividades com letras "a)", "b)" como no Word
+% (recuo de 1,25cm, sem espaço extra entre os parágrafos de um item)
+\setlist[enumerate,1]{label=\alph*),leftmargin=1.25cm,topsep=0pt,itemsep=6pt,parsep=0pt}
+
+% --- Pintura exata de vãos vazios de \multicolumn
+% (o colortbl não pinta corretamente célula mesclada sem conteúdo,
+%  então damos ao conteúdo a largura exata do vão)
+\newcommand{\caixa}[4][c]{\cellcolor{#2}\makebox[{#3}][#1]{\strut #4}}
+
+% --- Larguras das colunas das tabelas (proporções do Word)
+\newlength{\utilTab}
+\newlength{\colIdRot}\newlength{\colIdVal}
+\newlength{\colItem}\newlength{\colDesc}\newlength{\colResul}
+\newlength{\colIni}\newlength{\colFim}\newlength{\colResp}
+\newlength{\colNum}\newlength{\colAtiv}\newlength{\colTri}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+% ============================================================
+% SEÇÃO EM RETRATO
+% ============================================================
+
+% --- Títulos (17pt e 13pt, negrito, azul escuro, centralizados)
+\begin{center}
+  \singlespacing
+  {\bfseries\color{azulTitulo}\fontsize{17}{20}\selectfont PLANO DE AÇÃO}\\[6pt]
+  {\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont Planejamento Estratégico Fundep - Gestão 2026 a 2030}
+\end{center}
+
+% ============================================================
+% 1. IDENTIFICAÇÃO DO PLANO (cabeçalho)
+% Uma única AÇÃO por arquivo. Texto 10pt, rótulos em negrito sobre
+% D9E2F3, bordas de 1pt em BFBFBF, colunas 28,2% e 71,8%.
+% ============================================================
+\secao{IDENTIFICAÇÃO DO PLANO}
+
+\begingroup
+\footnotesize\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\tabcolsep}{5.4pt}
+\renewcommand{\arraystretch}{1.45}
+\setlength{\utilTab}{\dimexpr\textwidth-4\tabcolsep-3\arrayrulewidth\relax}
+\setlength{\colIdRot}{0.2819\utilTab}
+\setlength{\colIdVal}{\dimexpr\utilTab-\colIdRot\relax}
+% Células alinhadas à esquerda, não justificadas, como no Word
+\begin{tabular}{|>{\cellcolor{azulClaro}\bfseries\raggedright\arraybackslash}p{\colIdRot}|>{\raggedright\arraybackslash}p{\colIdVal}|}
+\hline
+DIRETRIZ & Transformação Digital \\
+\hline
+AÇÃO & Adequar os sistemas digitais da Fundep aos processos padrão definidos pela instituição. \\
+\hline
+RESPONSÁVEL & André Oliveira \\
+\hline
+OBJETIVO ESTRATÉGICO VINCULADO & Otimizar as rotinas operacionais por meio da automação e simplificação dos processos da gestão de projetos da Fundação utilizando tecnologias digitais. \\
+\hline
+META(S) OPERACIONAL(IS) VINCULADA(S) & Eliminar o uso de controles paralelos no fluxo de gestão de projetos até 2029; garantir a máxima disponibilidade dos sistemas para manter a operacionalidade dos colaboradores até 2029; normalizar a maioria dos processos críticos até 2029; e reduzir o tempo operacional por meio da implementação de tecnologias digitais na operação da Fundep até 2029. \\
+\hline
+PERÍODO DE ACOMPANHAMENTO & Julho de 2026 a dezembro de 2029 \\
+\hline
+ÁREAS ENVOLVIDAS & Conselho Diretor, Tecnologia da Informação, CIAs, Prestação de Contas, Compras, Importação, Logística, Gestão de Documentos, Administração de Pessoal, Gestão de Pessoas, Negócios e Parcerias, Financeiro e Contabilidade, Compliance, Jurídico. \\
+\hline
+% O documento de referência não tem linha de versão. Para usá-la,
+% descomentar as duas linhas abaixo.
+% VERSÃO & \PlanoVersao \\
+% \hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+% ============================================================
+% 2. JUSTIFICATIVA
+% ============================================================
+\secao{JUSTIFICATIVA}
+
+O crescimento da dependência tecnológica e da complexidade das demandas expõe fragilidades como fragmentação de sistemas, controles manuais (planilhas, e-mails) e variações informais entre áreas, comprometendo a rastreabilidade e a eficiência. A modernização tecnológica é essencial para sustentar a operação, padronizar processos críticos e assegurar qualidade e previsibilidade.
+
+Este plano de ação organiza, ao longo do quadriênio 2026-2030, a consolidação de uma plataforma corporativa única, a ampliação da automação e do uso de inteligência artificial, a garantia de alta disponibilidade dos sistemas e a eliminação progressiva de controles paralelos, com acompanhamento sistemático de prazos, responsáveis e indicadores.
+
+% ============================================================
+% 3. ATIVIDADES
+% ============================================================
+\secao{ATIVIDADES}
+
+\atividade{01. Acompanhar o processo de padronização de processos na Fundep}
+
+\begin{enumerate}
+  \item Identificar os processos padronizados com divergências nos sistemas digitais.
+
+        Identificam-se os processos que não estão sendo realizados pelos sistemas e como eles estão sendo realizados atualmente.
+  \item Mapear os processos com divergência, integrando-os aos sistemas digitais autorizados pela Fundep.
+
+        Os processos identificados com divergência terão estabelecidos quais serão os sistemas digitais oficiais e autorizados para serem utilizados durante a execução do processo.
+  \item Identificar quais são os processos críticos da Fundação.
+
+        Identificam-se processos atuais com grandes desvios que deverão ser abordados com soluções de automação durante o ciclo de gestão.
+\end{enumerate}
+
+\atividade{02. Implementar os sistemas de gestão digitais autorizados para a Fundep}
+
+Período de maio/2027 a dezembro/2029.
+
+Indicador: zero rotinas operacionais que ainda utilizem planilhas, e-mail ou similares até 2029.
+
+\begin{enumerate}
+  \item Desenvolver e habilitar os sistemas digitais autorizados para execução dos processos.
+  \item Garantir a disponibilidade dos sistemas digitais autorizados para a execução dos processos.
+\end{enumerate}
+
+\atividade{03. Normalizar os processos críticos mapeados por meio de soluções digitais}
+
+Período de maio/2027 a dezembro/2029.
+
+Indicador: percentual de processos críticos padronizados e em operação (meta: $\geq 80\%$ até 2029), com medição mensal.
+
+\begin{enumerate}
+  \item Definir prioridades de atuação nos processos críticos mapeados.
+  \item Implementar soluções digitais para normalização dos processos críticos.
+\end{enumerate}
+
+\atividade{04. Acompanhamento dos processos por sistemas digitais}
+
+\begin{enumerate}
+  \item Definir indicadores e formas de acompanhamento para os sistemas digitais relacionados aos processos padronizados.
+  \item Implementar repositório de dados unificado para gestão de indicadores dos processos.
+\end{enumerate}
+
+\atividade{05. Controle e monitoramento do atendimento ao público externo}
+
+A Fundep se comunica com coordenadores, fornecedores, alunos, candidatos e demais públicos externos por meio de mais de 200 dispositivos. Hoje essas conversas não são registradas nem monitoradas, o que representa risco à segurança dos dados, à conformidade com a LGPD e à continuidade do atendimento. Será implantada solução corporativa de controle e monitoramento dessas conversas, disponibilizando à Fundep o acompanhamento, em tempo real, do atendimento prestado ao público externo, com controle quantitativo e qualitativo das conversas e foco inicial na comunicação com os coordenadores.
+
+Além da segurança dos dados, a solução eleva a qualidade do atendimento e gera ganhos gerenciais relevantes: painel de controle, levantamento e histórico de dados das interações, acompanhamento de mensagens sem resposta e repasse estruturado de carteira entre os analistas das CIAs.
+
+Custo estimado de R\$ 10.000,00 por mês, de agosto de 2026 a dezembro de 2029, totalizando R\$ 410.000,00 no período. Caso o projeto seja firmado, esse valor passa a constituir despesa fixa da Fundep.
+
+\begin{enumerate}
+  \item Contratar e implantar a solução de monitoramento do atendimento.
+
+        Pesquisa e contratação de plataforma de controle e monitoramento das conversas com o público externo, com implantação nos dispositivos utilizados na comunicação com os coordenadores.
+  \item Acompanhar, evoluir e ampliar o controle.
+
+        Monitoramento contínuo do atendimento em tempo real, operação do painel de controle e dos indicadores quantitativos e qualitativos, e ampliação gradual do escopo para os demais públicos atendidos pela fundação.
+\end{enumerate}
+
+% ============================================================
+% SEÇÃO EM PAISAGEM (quebra de seção do Word)
+% Os dois quadros largos cabem aqui em tamanho natural.
+% ============================================================
+\iniciaPaisagem
+
+% ============================================================
+% 4. RESUMO DAS ATIVIDADES
+% Datas e responsáveis das linhas 02, 02.b, 03, 04, 04.b e 05
+% vieram do plano "Transformacao Digital - II" (atividades de
+% disponibilidade, controles paralelos, processos críticos,
+% repositório de dados e monitoramento das comunicações).
+% Demais campos: (a preencher).
+% ============================================================
+\secao{RESUMO DAS ATIVIDADES}
+
+\begingroup
+\footnotesize\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{1pt}
+% Entrelinha reduzida (o modelo usa 1.35): com 5 atividades e 12
+% subatividades o quadro só cabe na página paisagem assim.
+\renewcommand{\arraystretch}{1.2}
+\setlength{\utilTab}{\dimexpr\textwidth-12\tabcolsep-7\arrayrulewidth\relax}
+\setlength{\colItem}{0.04764\utilTab}
+\setlength{\colDesc}{0.43812\utilTab}
+\setlength{\colResul}{0.21902\utilTab}
+\setlength{\colIni}{0.05409\utilTab}
+\setlength{\colFim}{0.06101\utilTab}
+\setlength{\colResp}{\dimexpr\utilTab-\colItem-\colDesc-\colResul-\colIni-\colFim\relax}
+% \linhaAtividade{item}{descrição}{início}{término}{responsável}
+\newcommand{\linhaAtividade}[5]{%
+  \multicolumn{1}{|c|}{\caixa{azulTitulo}{\colItem}{\bfseries\color{white}#1}} &
+  \multicolumn{2}{>{\cellcolor{azulTitulo}}m{\dimexpr\colDesc+\colResul+2\tabcolsep+\arrayrulewidth\relax}|}{\bfseries\color{white}#2} &
+  \multicolumn{1}{c|}{\caixa{azulTitulo}{\colIni}{\bfseries\color{white}#3}} &
+  \multicolumn{1}{c|}{\caixa{azulTitulo}{\colFim}{\bfseries\color{white}#4}} &
+  \multicolumn{1}{c|}{\caixa{azulTitulo}{\colResp}{\bfseries\color{white}#5}} \\}
+\begin{tabular}{|>{\centering\arraybackslash}p{\colItem}|>{\raggedright\arraybackslash}p{\colDesc}|>{\raggedright\arraybackslash}p{\colResul}|>{\centering\arraybackslash}p{\colIni}|>{\centering\arraybackslash}p{\colFim}|>{\centering\arraybackslash}p{\colResp}|}
+\arrayrulecolor{bordaEscura}\hline\arrayrulecolor{bordaCinza}
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Item &
+\cellcolor{azulCabecalho}\centering\arraybackslash\fontsize{9.5}{11.5}\selectfont\bfseries Descrição &
+\cellcolor{azulCabecalho}\centering\arraybackslash\fontsize{9.5}{11.5}\selectfont\bfseries Resultados Esperados &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Início &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Término &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Responsável \\
+\hline
+\linhaAtividade{01}{ACOMPANHAR O PROCESSO DE PADRONIZAÇÃO DE PROCESSOS NA FUNDEP}{mm/aa}{mm/aa}{(a preencher)}
+\hline
+\cellcolor{azulClaro}01.a & \cellcolor{cinzaClaro}Identificar os processos padronizados com divergências nos sistemas digitais & \cellcolor{cinzaClaro}Processos com divergência identificados & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}\itshape (a preencher) \\
+\hline
+\cellcolor{azulClaro}01.b & Mapear os processos com divergência, integrando-os aos sistemas digitais autorizados pela Fundep & Sistemas digitais oficiais definidos para os processos com divergência & mm/aa & mm/aa & \itshape (a preencher) \\
+\hline
+\cellcolor{azulClaro}01.c & \cellcolor{cinzaClaro}Identificar quais são os processos críticos da Fundação & \cellcolor{cinzaClaro}Relação dos processos críticos identificada & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}\itshape (a preencher) \\
+\hline
+\linhaAtividade{02}{IMPLEMENTAR OS SISTEMAS DE GESTÃO DIGITAIS AUTORIZADOS PARA A FUNDEP}{05/27}{12/29}{André Oliveira}
+\hline
+\cellcolor{azulClaro}02.a & \cellcolor{cinzaClaro}Desenvolver e habilitar os sistemas digitais autorizados para execução dos processos & \cellcolor{cinzaClaro}Sistemas digitais autorizados desenvolvidos e habilitados & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}\itshape (a preencher) \\
+\hline
+\cellcolor{azulClaro}02.b & Garantir a disponibilidade dos sistemas digitais autorizados & Disponibilidade $\geq 99\%$ por sistema crítico & 06/26 & 12/29 & \itshape André Oliveira \\
+\hline
+\linhaAtividade{03}{NORMALIZAR OS PROCESSOS CRÍTICOS MAPEADOS POR MEIO DE SOLUÇÕES DIGITAIS}{05/27}{12/29}{André Oliveira}
+\hline
+\cellcolor{azulClaro}03.a & \cellcolor{cinzaClaro}Definir prioridades de atuação nos processos críticos mapeados & \cellcolor{cinzaClaro}Prioridades de atuação definidas & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}\itshape (a preencher) \\
+\hline
+\cellcolor{azulClaro}03.b & Implementar soluções digitais para normalização dos processos críticos & $\geq 80\%$ dos processos críticos padronizados e em operação & mm/aa & mm/aa & \itshape (a preencher) \\
+\hline
+\linhaAtividade{04}{ACOMPANHAMENTO DOS PROCESSOS POR SISTEMAS DIGITAIS}{08/26}{12/29}{André Oliveira}
+\hline
+\cellcolor{azulClaro}04.a & \cellcolor{cinzaClaro}Definir indicadores e formas de acompanhamento para os sistemas digitais relacionados aos processos padronizados & \cellcolor{cinzaClaro}Indicadores e formas de acompanhamento definidos & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}mm/aa & \cellcolor{cinzaClaro}\itshape (a preencher) \\
+\hline
+\cellcolor{azulClaro}04.b & Implementar repositório de dados unificado para gestão de indicadores dos processos & Repositório de dados unificado em operação & 08/26 & 12/29 & \itshape André Oliveira \\
+\hline
+\linhaAtividade{05}{CONTROLAR E MONITORAR O ATENDIMENTO AO PÚBLICO EXTERNO}{08/26}{12/29}{André Oliveira}
+\hline
+\cellcolor{azulClaro}05.a & \cellcolor{cinzaClaro}Contratar e implantar a solução de monitoramento do atendimento, com foco inicial na comunicação com os coordenadores & \cellcolor{cinzaClaro}Solução contratada e implantada em 2026 & \cellcolor{cinzaClaro}08/26 & \cellcolor{cinzaClaro}12/26 & \cellcolor{cinzaClaro}\itshape André, Flávia \\
+\hline
+\cellcolor{azulClaro}05.b & Acompanhar, evoluir e ampliar o controle do atendimento & Acompanhamento em tempo real das conversas, com controle quantitativo e qualitativo do atendimento & 01/27 & 12/29 & \itshape André, Flávia \\
+\arrayrulecolor{bordaEscura}\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+% ============================================================
+% 5. CRONOGRAMA FÍSICO-FINANCEIRO
+%
+% Régua de 14 trimestres, de 3º tri/2026 a 4º tri/2029 (o plano
+% termina em dezembro/2029; o modelo original vai até 1º tri/2030).
+%
+% Mapa das colunas (as duas primeiras são número e descrição):
+%   col:   3   4 |  5   6   7   8 |  9  10  11  12 | 13  14  15  16
+%   ano:  2026   |      2027      |      2028      |      2029
+%   tri:  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º
+%
+% Atenção: cada linha precisa somar 16 colunas.
+% ============================================================
+% Quebra para não deixar o título órfão no fim da página do resumo
+% (o quadro ocupa a página paisagem inteira).
+\clearpage
+\secao{CRONOGRAMA FÍSICO-FINANCEIRO}
+
+Atividades e subatividades nos trimestres correspondentes ao início e ao término de cada uma. Os valores da subatividade 02.b correspondem ao gasto anual previsto para garantir a disponibilidade dos sistemas (total de R\$ 4.550.000,00) e os da atividade 05 ao monitoramento do atendimento ao público externo (R\$ 10 mil por mês, de agosto de 2026 a dezembro de 2029). Períodos e valores das demais atividades e subatividades: (a preencher).
+
+\begingroup
+\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{0.4pt}
+\setlength{\tabcolsep}{3.5pt}
+% Entrelinha reduzida (o Word usa 1.4): com 5 atividades e 12
+% subatividades o quadro só cabe na página paisagem assim.
+\renewcommand{\arraystretch}{1.1}
+% Larguras do Word: 460 / 3320 / 15 x 720 twips de um total de 14580.
+\setlength{\colTri}{\dimexpr0.049383\textwidth-2\tabcolsep\relax}
+\setlength{\colNum}{\dimexpr0.03155\textwidth-2\tabcolsep\relax}
+\setlength{\colAtiv}{\dimexpr\textwidth-\colNum-14\colTri-32\tabcolsep-17\arrayrulewidth\relax}
+\newcolumntype{T}{>{\centering\arraybackslash}p{\colTri}}
+% Largura de um vão de #1 colunas de trimestre
+\newcommand{\vaotri}[1]{\dimexpr #1\dimexpr\colTri+2\tabcolsep+\arrayrulewidth\relax-2\tabcolsep-\arrayrulewidth\relax}
+% Rótulo da linha de atividade: ocupa as duas primeiras colunas
+\newcommand{\rotulo}[1]{\multicolumn{2}{|>{\cellcolor{cinzaMedio}}m{\dimexpr\colNum+\colAtiv+2\tabcolsep+\arrayrulewidth\relax}|}{\bfseries #1}}
+\begin{tabular}{|p{\colNum}|>{\raggedright\arraybackslash}p{\colAtiv}|*{14}{T|}}
+\cline{3-16}
+\multicolumn{2}{c|}{} &
+\multicolumn{2}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2026} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2027} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2028} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2029} \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulCelula}\bfseries Atividade} &
+\cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri \\
+\hline
+% --- Atividade 01: período (a preencher)
+\rotulo{01 - Acompanhar a padronização de processos} &
+ &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize a) Identificar processos com divergências &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize b) Mapear e integrar os processos com divergência &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize c) Identificar os processos críticos &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+% --- Atividade 02: 2º tri/27 a 4º tri/29 (colunas 6 a 16)
+\rotulo{02 - Implementar os sistemas digitais autorizados} &
+ &  &  & \multicolumn{11}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} \\
+\hline
+ & \footnotesize a) Desenvolver e habilitar os sistemas autorizados &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+% 02.b: valores anuais da atividade de disponibilidade dos sistemas
+% do plano "Transformacao Digital - II" (2026 sem valor).
+ & \footnotesize b) Garantir a disponibilidade dos sistemas &
+\multicolumn{2}{c|}{\caixa{cinzaE8}{\vaotri{2}}{}} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 1.511.500,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 1.570.000,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 1.468.500,00} \\
+\hline
+% --- Atividade 03: 2º tri/27 a 4º tri/29 (colunas 6 a 16)
+\rotulo{03 - Normalizar os processos críticos mapeados} &
+ &  &  & \multicolumn{11}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} \\
+\hline
+ & \footnotesize a) Definir prioridades de atuação &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize b) Implementar soluções digitais &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+% --- Atividade 04: 3º tri/26 a 4º tri/29 (colunas 3 a 16)
+\rotulo{04 - Acompanhamento dos processos por sistemas digitais} &
+\multicolumn{14}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} \\
+\hline
+ & \footnotesize a) Definir indicadores e formas de acompanhamento &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize b) Implementar repositório de dados unificado &
+\multicolumn{14}{c|}{\caixa{cinzaE8}{\vaotri{14}}{}} \\
+\hline
+% --- Atividade 05: 3º tri/26 a 4º tri/29 (colunas 3 a 16)
+% Valores do monitoramento das comunicações do plano "Transformacao
+% Digital - II", recalculados para o término em dezembro/2029:
+% 05.a ago-dez/26 (5 meses) e 05.b jan/27-dez/29 (36 meses).
+\rotulo{05 - Monitorar o atendimento ao público externo} &
+\multicolumn{14}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 410 mil (R\$ 10 mil/mês)} \\
+\hline
+ & \footnotesize a) Contratar e implantar a solução de monitoramento &
+\multicolumn{2}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 50 mil} &  &  &  &  &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize b) Acompanhar, evoluir e ampliar o controle &  &  &
+\multicolumn{12}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 360 mil} \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulVivo}\bfseries\color{white}TOTAL} &
+\multicolumn{14}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 4.960.000,00 (parcial: trechos sem valor ainda a definir)} \\
+\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+\vspace{\dimexpr8pt-\parskip\relax}
+{\color{azulVivo}Link para planilha com modelo de orçamento (baixar e editar na sua máquina, não editar o arquivo online): \href{https://fundep.sharepoint.com/:x:/s/msteams_d9be15_927448/IQDlWOOVcV0ySa6pQ8AKcar6AXgZc2DPSjLTqQ-oyDIG_2Y?e=EOus7n}{\color{azulVivo}PE 26-30 - PPA - Modelo cronograma fisico-financeiro.xlsx}}
+
+\end{document}

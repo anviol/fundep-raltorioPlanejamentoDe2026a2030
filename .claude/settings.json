@@ -11,7 +11,12 @@
       "Read(//var/folders/b0/6f8983pn4vzgftz0g9s1yqj40000gp/T/**)",
       "Read(//private/var/folders/b0/6f8983pn4vzgftz0g9s1yqj40000gp/T/**)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r70 -dFirstPage=3 -dLastPage=3 -o \"/private/tmp/claude-502/-Users-andreoliveira-dev-fundep-raltorioPlanejamentoDe2026a2030/ba1b4d35-59fe-4380-b7fb-8076867fcbfd/scratchpad/adequacao-p3.png\" \"PE 26-30 - PPA - Adequação dos Sistemas.pdf\")",
+      "Bash(python3 -c ' *)",
+      "Bash(awk 'NR>560 && NR<620' \"PE 26-30 - PPA - Auditoria Seguranca Informação.log\")",
+      "Bash(awk 'NR>590 && NR<605' \"PE 26-30 - PPA - Auditoria Seguranca Informação.log\")"
     ]
   }
 }

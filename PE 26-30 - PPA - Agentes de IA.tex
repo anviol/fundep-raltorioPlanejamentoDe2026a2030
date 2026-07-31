@@ -1,0 +1,343 @@
+% ============================================================
+% PE 26-30 - PPA - Agentes de IA
+% Plano de ação derivado do MODELO
+% (PE 26-30 - PPA - Plano de Acao - MODELO.tex)
+%
+% Conteúdo extraído de
+% "PE 26-30 - PPA - Plano de Acao - Transformacao Digital - II.tex",
+% segundo plano do arquivo (Otimização das Rotinas Operacionais),
+% restrito à atividade "02. Reduzir o tempo operacional com agentes
+% de inteligência artificial", que aqui passa a ser a atividade 01,
+% única deste plano.
+%
+% Compilar com: latexmk "PE 26-30 - PPA - Agentes de IA.tex"
+% ============================================================
+\documentclass[12pt,a4paper]{article}
+
+% --- Pacotes básicos
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{mathptmx}            % Fonte Times (equivalente à Times New Roman)
+\usepackage[a4paper,top=2cm,bottom=2.5cm,left=2cm,right=2cm,headheight=14pt,headsep=0.45cm,footskip=1.3cm]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage[hidelinks]{hyperref}
+
+\graphicspath{{img/}{./img/}}
+
+% --- Versão do plano (atualizar a cada alteração significativa)
+\newcommand{\PlanoVersao}{0.3}
+
+% --- Cores do documento Word
+\definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
+\definecolor{azulAtividade}{HTML}{2F5496} % títulos das atividades 01..NN
+\definecolor{azulClaro}{HTML}{D9E2F3}    % coluna esquerda da tabela de identificação
+\definecolor{azulCabecalho}{HTML}{9CC2E5} % cabeçalho da tabela resumo
+\definecolor{azulZebra}{HTML}{EAF0FA}    % zebra da coluna Item
+\definecolor{cinzaClaro}{HTML}{F2F2F2}   % zebra das linhas do resumo
+\definecolor{azulVivo}{HTML}{0070C0}     % anos / TOTAL do cronograma e link
+\definecolor{azulCelula}{HTML}{C0E6F5}   % linha de trimestres do cronograma
+\definecolor{cinzaMedio}{HTML}{BFBFBF}   % linhas de atividade do cronograma
+\definecolor{cinzaE8}{HTML}{E8E8E8}      % células de valores do cronograma
+\definecolor{bordaCinza}{HTML}{BFBFBF}   % bordas da tabela de identificação
+\definecolor{bordaEscura}{HTML}{595959}  % bordas externas da tabela resumo
+
+% --- Parágrafos como no Word: sem recuo, justificados, entrelinha 1,5
+%     e 12pt de espaço entre parágrafos (Word: espaçamento depois = 12pt).
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+\onehalfspacing
+
+% --- Cabeçalho "Página N" (a partir da página 2) e rodapé com imagem
+\fancypagestyle{corpo}{%
+  \fancyhf{}%
+  \fancyhead[L]{\fontsize{10}{12}\selectfont Página \thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{corpo}
+
+% --- Papel timbrado Fundep (image1.png do Word) como fundo de página.
+% Em retrato, o timbrado cobre a página inteira. Em paisagem, ele é
+% encaixado pela altura e alinhado à direita, para que a faixa lateral
+% com "fundep.ufmg.br" fique na borda direita sem distorcer a imagem
+% (o timbrado original é um A4 retrato). Em ambos os casos a faixa de
+% rodapé do timbrado é coberta por um retângulo branco e substituída
+% pela imagem de rodapé (image2.jpg do Word), centralizada na base.
+\newif\ifpaisagem
+\newcommand{\razaoTimbrado}{0.70724}   % 2481/3508 px do timbrado
+\AddToShipoutPictureBG{%
+  \ifpaisagem
+    \put(\LenToUnit{\dimexpr\paperwidth-\razaoTimbrado\paperheight\relax},0){%
+      \includegraphics[height=\paperheight]{timbrado_a4_fundep.png}}%
+  \else
+    \put(0,0){\includegraphics[width=\paperwidth,height=\paperheight]{timbrado_a4_fundep.png}}%
+  \fi
+  \AtPageLowerLeft{\color{white}\rule{\paperwidth}{2.3cm}}%
+  \AtPageLowerLeft{%
+    \makebox[\paperwidth][c]{\raisebox{0.15cm}{\includegraphics[width=18cm]{rodape_fundep.jpg}}}%
+  }%
+}
+
+% --- Quebra de seção com mudança de orientação.
+% O Word usa duas seções: retrato para a identificação, a justificativa
+% e as atividades; paisagem para o Resumo das Atividades e o Cronograma
+% Físico-Financeiro, que assim cabem em tamanho natural, sem redução.
+% Margens da seção paisagem: 2cm em cima e nas laterais, 3cm embaixo.
+\makeatletter
+\newcommand{\iniciaPaisagem}{%
+  \clearpage
+  \paisagemtrue
+  \global\pdfpagewidth=297mm \global\pdfpageheight=210mm
+  \global\paperwidth=297mm   \global\paperheight=210mm
+  \global\textwidth=25.7cm   \global\textheight=16cm
+  \global\hsize=\textwidth \global\linewidth=\textwidth
+  \global\columnwidth=\textwidth
+  \global\oddsidemargin=\dimexpr2cm-1in\relax
+  \global\evensidemargin=\oddsidemargin
+  \global\topmargin=\dimexpr2cm-1in-\headheight-\headsep\relax
+  \global\vsize=\textheight \global\@colht=\textheight
+  \global\@colroom=\textheight
+}
+\makeatother
+
+% --- Títulos de seção (13pt, negrito, azul escuro)
+% Word: espaçamento antes 16pt, depois 8pt.
+\newcommand{\secao}[1]{%
+  \par\vspace{\dimexpr16pt-\parskip\relax}%
+  {\noindent\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont #1}%
+  \par\vspace{\dimexpr8pt-\parskip\relax}%
+}
+
+% --- Título de atividade (12pt, negrito, azul médio)
+\newcommand{\atividade}[1]{%
+  \par\vspace{\dimexpr16pt-\parskip\relax}%
+  {\bfseries\color{azulAtividade}#1}%
+  \par\vspace{\dimexpr8pt-\parskip\relax}%
+}
+
+% --- Listas de subatividades com letras "a)", "b)" como no Word
+% (recuo de 1,25cm, sem espaço extra entre os parágrafos de um item)
+\setlist[enumerate,1]{label=\alph*),leftmargin=1.25cm,topsep=0pt,itemsep=6pt,parsep=0pt}
+
+% --- Pintura exata de vãos vazios de \multicolumn
+% (o colortbl não pinta corretamente célula mesclada sem conteúdo,
+%  então damos ao conteúdo a largura exata do vão)
+\newcommand{\caixa}[4][c]{\cellcolor{#2}\makebox[{#3}][#1]{\strut #4}}
+
+% --- Larguras das colunas das tabelas (proporções do Word)
+\newlength{\utilTab}
+\newlength{\colIdRot}\newlength{\colIdVal}
+\newlength{\colItem}\newlength{\colDesc}\newlength{\colResul}
+\newlength{\colIni}\newlength{\colFim}\newlength{\colResp}
+\newlength{\colNum}\newlength{\colAtiv}\newlength{\colTri}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+% ============================================================
+% SEÇÃO EM RETRATO
+% ============================================================
+
+% --- Títulos (17pt e 13pt, negrito, azul escuro, centralizados)
+\begin{center}
+  \singlespacing
+  {\bfseries\color{azulTitulo}\fontsize{17}{20}\selectfont PLANO DE AÇÃO}\\[6pt]
+  {\bfseries\color{azulTitulo}\fontsize{13}{16}\selectfont Planejamento Estratégico Fundep - Gestão 2026 a 2030}
+\end{center}
+
+% ============================================================
+% 1. IDENTIFICAÇÃO DO PLANO (cabeçalho)
+% Reproduz o cabeçalho do plano "Otimização das Rotinas Operacionais"
+% (Transformação Digital - II). O documento de origem não traz a linha
+% FORTALEZA/PROBLEMA e traz a linha VERSÃO.
+% ============================================================
+\secao{IDENTIFICAÇÃO DO PLANO}
+
+\begingroup
+\footnotesize\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{1pt}
+\setlength{\tabcolsep}{5.4pt}
+\renewcommand{\arraystretch}{1.45}
+\setlength{\utilTab}{\dimexpr\textwidth-4\tabcolsep-3\arrayrulewidth\relax}
+\setlength{\colIdRot}{0.2819\utilTab}
+\setlength{\colIdVal}{\dimexpr\utilTab-\colIdRot\relax}
+% Células alinhadas à esquerda, não justificadas, como no Word
+\begin{tabular}{|>{\cellcolor{azulClaro}\bfseries\raggedright\arraybackslash}p{\colIdRot}|>{\raggedright\arraybackslash}p{\colIdVal}|}
+\hline
+DIRETRIZ & Transformação Digital \\
+\hline
+AÇÃO & Tornar as rotinas operacionais da Fundep mais eficientes com o uso de agentes de inteligência artificial, de modo a posicionar a Fundação como referência técnica entre as fundações de apoio. \\
+\hline
+RESPONSÁVEL & André Oliveira \\
+\hline
+OBJETIVO ESTRATÉGICO VINCULADO & Otimização das Rotinas Operacionais por meio da Automação e Simplificação de Processos \\
+\hline
+META(S) OPERACIONAL(IS) VINCULADA(S) & Reduzir o tempo operacional com agentes de inteligência artificial. \\
+\hline
+PERÍODO DE ACOMPANHAMENTO & Julho de 2026 a março de 2028 \\
+\hline
+ÁREAS ENVOLVIDAS & Conselho Diretor, Tecnologia da Informação, CIAs, Prestação de Contas, Compras, Importação, Logística, Gestão de Documentos, Administração de Pessoal, Gestão de Pessoas, Negócios e Parcerias, Financeiro e Contabilidade, Compliance, Jurídico. \\
+\hline
+VERSÃO & \PlanoVersao \\
+\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+% ============================================================
+% 2. JUSTIFICATIVA
+% ============================================================
+\secao{JUSTIFICATIVA}
+
+O crescimento da dependência tecnológica e da complexidade das demandas expõe fragilidades como fragmentação de sistemas, controles manuais (planilhas, e-mails) e variações informais entre áreas, comprometendo a rastreabilidade e a eficiência. A modernização tecnológica é essencial para sustentar a operação, padronizar processos críticos e assegurar qualidade e previsibilidade.
+
+Este plano de ação organiza, ao longo do quadriênio 2026-2029, a consolidação de uma plataforma corporativa única, a ampliação da automação e do uso de inteligência artificial, a garantia de alta disponibilidade dos sistemas e a eliminação progressiva de controles paralelos, com acompanhamento sistemático de prazos, responsáveis e indicadores.
+
+% ============================================================
+% 3. ATIVIDADES
+% Atividade única deste plano, correspondente à atividade 02 do plano
+% "Otimização das Rotinas Operacionais" (Transformação Digital - II).
+% ============================================================
+\secao{ATIVIDADES}
+
+\atividade{01. Reduzir o tempo operacional com agentes de inteligência artificial}
+
+Adoção de agentes de inteligência artificial para apoiar processos operacionais, reduzindo o tempo médio de execução. Período de julho de 2026 a março de 2028.
+
+Indicador: redução mínima de 20\% no tempo médio de execução dos processos apoiados por inteligência artificial até 2029, tomando como base o período anterior à implementação.
+
+Investimento de R\$ 60.000,00 em equipamentos previsto para 2026, ano inicial da atividade. Os valores de 2027 e 2028 ainda permanecem zerados.
+
+\begin{enumerate}
+  \item Investigar e implementar agentes de inteligência artificial nos processos operacionais.
+
+        Levantamento dos processos operacionais da Fundep para identificar aqueles em que um agente de inteligência artificial é a solução adequada, seguido da implementação dos agentes nos processos selecionados, com apuração do tempo de execução antes e depois da adoção.
+\end{enumerate}
+
+% ============================================================
+% SEÇÃO EM PAISAGEM (quebra de seção do Word)
+% Os quadros largos cabem aqui em tamanho natural.
+% ============================================================
+\iniciaPaisagem
+
+% ============================================================
+% 4. RESUMO DAS ATIVIDADES
+% Uma única linha de atividade, sem subatividades, porque o documento
+% de origem não as detalha. Datas no formato mm/aa.
+% ============================================================
+\secao{RESUMO DAS ATIVIDADES}
+
+\begingroup
+\footnotesize\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{0.5pt}
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\utilTab}{\dimexpr\textwidth-12\tabcolsep-7\arrayrulewidth\relax}
+\setlength{\colItem}{0.04764\utilTab}
+\setlength{\colDesc}{0.43812\utilTab}
+\setlength{\colResul}{0.21902\utilTab}
+\setlength{\colIni}{0.05409\utilTab}
+\setlength{\colFim}{0.06101\utilTab}
+\setlength{\colResp}{\dimexpr\utilTab-\colItem-\colDesc-\colResul-\colIni-\colFim\relax}
+\begin{tabular}{|>{\centering\arraybackslash}p{\colItem}|>{\raggedright\arraybackslash}p{\colDesc}|>{\raggedright\arraybackslash}p{\colResul}|>{\centering\arraybackslash}p{\colIni}|>{\centering\arraybackslash}p{\colFim}|>{\centering\arraybackslash}p{\colResp}|}
+\arrayrulecolor{bordaEscura}\hline\arrayrulecolor{bordaCinza}
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Item &
+\cellcolor{azulCabecalho}\centering\arraybackslash\fontsize{9.5}{11.5}\selectfont\bfseries Descrição &
+\cellcolor{azulCabecalho}\centering\arraybackslash\fontsize{9.5}{11.5}\selectfont\bfseries Resultados Esperados &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Início &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Término &
+\cellcolor{azulCabecalho}\fontsize{9.5}{11.5}\selectfont\bfseries Responsável \\
+\hline
+% Linha de atividade sem mesclagem, para preservar a coluna de
+% resultados esperados do documento de origem.
+\cellcolor{azulTitulo}\bfseries\color{white}01 &
+\cellcolor{azulTitulo}\bfseries\color{white}REDUZIR O TEMPO OPERACIONAL COM AGENTES DE INTELIGÊNCIA ARTIFICIAL &
+\cellcolor{azulTitulo}\bfseries\color{white}Redução mínima de 20\% no tempo médio de execução dos processos apoiados por IA &
+\cellcolor{azulTitulo}\bfseries\color{white}jul/26 &
+\cellcolor{azulTitulo}\bfseries\color{white}mar/28 &
+\cellcolor{azulTitulo}\bfseries\color{white}Diretor de TI \\
+\hline
+\cellcolor{azulClaro}01.a & \cellcolor{cinzaClaro}Investigar e implementar agentes de inteligência artificial nos processos operacionais em que essa é a solução adequada. & \cellcolor{cinzaClaro}Processos identificados e agentes implementados, com redução do tempo médio de execução. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape Diretor de TI \\
+\arrayrulecolor{bordaEscura}\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+% ============================================================
+% 5. CRONOGRAMA FÍSICO-FINANCEIRO
+%
+% Régua de 14 trimestres, de 3º tri/2026 a 4º tri/2029.
+%
+% Mapa das colunas (as duas primeiras são número e descrição):
+%   col:   3   4 |  5   6   7   8 |  9  10  11  12 | 13  14  15  16
+%   ano:  2026   |      2027      |      2028      |      2029
+%   tri:  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º
+%
+% A atividade vai de jul/26 (3º tri/2026) a mar/28 (1º tri/2028),
+% ou seja, das colunas 3 a 9.
+% Atenção: cada linha precisa somar 16 colunas.
+% ============================================================
+\secao{CRONOGRAMA FÍSICO-FINANCEIRO}
+
+Atividade posicionada nos trimestres correspondentes ao seu início e ao seu término. Os R\$ 60.000,00 de 2026 referem-se à aquisição de equipamentos no ano inicial da atividade. Os valores de 2027 e do 1º trimestre de 2028 ainda serão definidos, de modo que o total apresentado é parcial.
+
+\begingroup
+\singlespacing
+\arrayrulecolor{bordaCinza}
+\setlength{\arrayrulewidth}{0.4pt}
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.4}
+% Larguras do Word: 460 / 3320 / 14 x 720 twips de um total de 14580.
+\setlength{\colTri}{\dimexpr0.049383\textwidth-2\tabcolsep\relax}
+\setlength{\colNum}{\dimexpr0.03155\textwidth-2\tabcolsep\relax}
+\setlength{\colAtiv}{\dimexpr\textwidth-\colNum-14\colTri-32\tabcolsep-17\arrayrulewidth\relax}
+\newcolumntype{T}{>{\centering\arraybackslash}p{\colTri}}
+% Largura de um vão de #1 colunas de trimestre
+\newcommand{\vaotri}[1]{\dimexpr #1\dimexpr\colTri+2\tabcolsep+\arrayrulewidth\relax-2\tabcolsep-\arrayrulewidth\relax}
+% Rótulo da linha de atividade: ocupa as duas primeiras colunas
+\newcommand{\rotulo}[1]{\multicolumn{2}{|>{\cellcolor{cinzaMedio}}m{\dimexpr\colNum+\colAtiv+2\tabcolsep+\arrayrulewidth\relax}|}{\bfseries #1}}
+\begin{tabular}{|p{\colNum}|>{\raggedright\arraybackslash}p{\colAtiv}|*{14}{T|}}
+\cline{3-16}
+\multicolumn{2}{c|}{} &
+\multicolumn{2}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2026} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2027} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2028} &
+\multicolumn{4}{c|}{\cellcolor{azulVivo}\bfseries\color{white}2029} \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulCelula}\bfseries Atividade} &
+\cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
+\cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri \\
+\hline
+% --- Atividade 01: 3º tri/26 a 1º tri/28 (colunas 3 a 9)
+\rotulo{01 - Reduzir o tempo operacional com agentes de IA} &
+\multicolumn{2}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 60.000,00} &
+\multicolumn{5}{c|}{\caixa{cinzaMedio}{\vaotri{5}}{}} &  &  &  &  &  &  &  \\
+\hline
+ & \footnotesize a) Investigar e implementar agentes de IA nos processos &
+\multicolumn{2}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 60.000,00} &
+\multicolumn{5}{c|}{\caixa{cinzaE8}{\vaotri{5}}{}} &  &  &  &  &  &  &  \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{azulVivo}\bfseries\color{white}TOTAL} &
+\multicolumn{14}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 60.000,00 (parcial: valores de 2027 e 2028 a definir)} \\
+\hline
+\end{tabular}
+\arrayrulecolor{black}
+\endgroup
+
+\vspace{\dimexpr8pt-\parskip\relax}
+{\color{azulVivo}Link para planilha com modelo de orçamento (baixar e editar na sua máquina, não editar o arquivo online): \href{https://fundep.sharepoint.com/:x:/s/msteams_d9be15_927448/IQDlWOOVcV0ySa6pQ8AKcar6AXgZc2DPSjLTqQ-oyDIG_2Y?e=EOus7n}{\color{azulVivo}PE 26-30 - PPA - Modelo cronograma fisico-financeiro.xlsx}}
+
+\end{document}
