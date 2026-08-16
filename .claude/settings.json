@@ -16,7 +16,9 @@
       "Bash(gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r70 -dFirstPage=3 -dLastPage=3 -o \"/private/tmp/claude-502/-Users-andreoliveira-dev-fundep-raltorioPlanejamentoDe2026a2030/ba1b4d35-59fe-4380-b7fb-8076867fcbfd/scratchpad/adequacao-p3.png\" \"PE 26-30 - PPA - Adequação dos Sistemas.pdf\")",
       "Bash(python3 -c ' *)",
       "Bash(awk 'NR>560 && NR<620' \"PE 26-30 - PPA - Auditoria Seguranca Informação.log\")",
-      "Bash(awk 'NR>590 && NR<605' \"PE 26-30 - PPA - Auditoria Seguranca Informação.log\")"
+      "Bash(awk 'NR>590 && NR<605' \"PE 26-30 - PPA - Auditoria Seguranca Informação.log\")",
+      "Bash(/usr/bin/grep -c Overfull \"PE 26-30 - PPA - Plano de Acao - Implementar o GPF 2.0.log\")",
+      "Bash(echo \"rc=$?\")"
     ]
   }
 }
