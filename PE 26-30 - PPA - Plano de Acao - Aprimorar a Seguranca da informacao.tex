@@ -36,7 +36,7 @@
 \graphicspath{{img/}{./img/}}
 
 % --- Versão do plano (atualizar a cada alteração significativa)
-\newcommand{\PlanoVersao}{0.6}
+\newcommand{\PlanoVersao}{0.7}
 
 % --- Cores do documento Word
 \definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
@@ -130,6 +130,17 @@
 % (recuo de 1,25cm, sem espaço extra entre os parágrafos de um item)
 \setlist[enumerate,1]{label=\alph*),leftmargin=1.25cm,topsep=0pt,itemsep=6pt,parsep=0pt}
 
+% --- Rótulo de categoria da lista do diagnóstico FOFA
+\newcommand{\categoriafofa}[1]{%
+  \par\vspace{\dimexpr8pt-\parskip\relax}%
+  {\bfseries #1}%
+  \par\vspace{\dimexpr4pt-\parskip\relax}%
+}
+
+% --- Lista de itens do diagnóstico FOFA (mesmo recuo das subatividades)
+\newlist{fofa}{itemize}{1}
+\setlist[fofa]{label=\textbullet,leftmargin=1.25cm,topsep=0pt,itemsep=3pt,parsep=0pt}
+
 % --- Pintura exata de vãos vazios de \multicolumn
 % (o colortbl não pinta corretamente célula mesclada sem conteúdo,
 %  então damos ao conteúdo a largura exata do vão)
@@ -184,7 +195,7 @@ DIRETRIZ & Transformação Digital \\
 \hline
 AÇÃO & Aprimorar a Segurança da Informação \\
 \hline
-RESPONSÁVEL & Flavia Carolina de Oliveira Andrade, DPO \\
+RESPONSÁVEL & DPO - Flavia Carolina de Oliveira Andrade\\
 \hline
 FORTALEZA/PROBLEMA & Fragilidade no atendimento legal em segurança de dados \\
 \hline
@@ -206,13 +217,88 @@ PERÍODO DE ACOMPANHAMENTO & Agosto de 2026 a dezembro de 2029 \\
 
 % ============================================================
 % 2. JUSTIFICATIVA
-% Texto do documento de origem.
+% Texto do documento de origem, seguido dos itens do diagnóstico
+% FOFA associados a esta ação.
+%
+% Fonte dos itens do FOFA:
+% docs/FOFA_LAPIDADA_FUNDEP_080426_113927 1.html
+%
+% Critério de seleção:
+% 1) Vínculo direto no mapa. O campo FORTALEZA/PROBLEMA deste plano
+%    corresponde ao problema 6201 do mapa. As arestas do 6201 ligam-no
+%    às fraquezas 311, 316, 317 e 331, que são as únicas ligações
+%    diretas registradas (o 6201 não tem aresta para forças,
+%    oportunidades, ameaças ou fortalezas).
+% 2) Complementos por afinidade temática com o escopo da ação,
+%    aprovados na revisão do plano: forças 102, 110, 111 e 112;
+%    fraquezas 303, 312, 321 e 338; oportunidade 206; ameaças
+%    405 e 407; fortalezas 6101 e 6102.
+%
+% Os textos são os do mapa, com correção de grafia em três itens:
+% 338 ("adpatação" no original), 405 ("lesgislações") e 407
+% ("orgãos" e "complexibilidade").
+%
+% Observação: o mapa não registra nenhuma ameaça de conteúdo
+% cibernético (ataque, vazamento, ransomware). O argumento sobre
+% ameaças cibernéticas do primeiro parágrafo vem do documento de
+% origem, não do diagnóstico FOFA.
 % ============================================================
 \secao{JUSTIFICATIVA}
 
 A Fundep realiza milhares de transações com uso de dados por dia. Além disso, os avanços tecnológicos acelerados com o uso de ferramentas de inteligência artificial aumentam exponencialmente as ameaças cibernéticas, reforçando a importância de manter os mecanismos de segurança da informação da instituição alinhados a padrões adequados de conformidade. Nesse sentido, a contratação de uma auditoria externa, integrante do grupo das seis maiores empresas do setor, justifica-se pela necessidade de uma avaliação independente sobre a maturidade dos controles internos, processos e ativos tecnológicos da instituição.
 
 Além de identificar vulnerabilidades e apontar melhorias para a mitigação de riscos operacionais e financeiros, a avaliação por uma entidade externa contribui para a governança corporativa, a transparência perante parceiros e órgãos reguladores, e para a reputação institucional, ao evidenciar o compromisso da instituição com a proteção de dados e a continuidade dos negócios.
+
+Esta ação está associada aos itens do diagnóstico FOFA da Fundep relacionados a seguir, mapeados pelos gerentes da instituição. O número que antecede cada item é o seu identificador no diagnóstico.
+
+\categoriafofa{Forças}
+
+\begin{fofa}
+  \item 102. Reputação institucional consolidada e elevada credibilidade perante stakeholders.
+  \item 110. Gestão tecnológica e de informações integrada e adaptável.
+  \item 111. Vantagem competitiva em soluções de TI proprietárias.
+  \item 112. Programa de Integridade constituído.
+\end{fofa}
+
+\categoriafofa{Oportunidades}
+
+\begin{fofa}
+  \item 206. Tecnologias digitais de Inteligência Artificial emergentes aplicadas a processos.
+\end{fofa}
+
+\categoriafofa{Fraquezas}
+
+\begin{fofa}
+  \item 303. Falta de gestão de contingência.
+  \item 311. Confiabilidade dos dados financeiros e extratos.
+  \item 312. Instrumentos de governança desatualizados ou inexistentes.
+  \item 316. Falta de atendimento integral à LGPD.
+  \item 317. Segurança da informação e proteção de dados deficientes.
+  \item 321. Falta de gestão de riscos.
+  \item 331. Falta de integração dos fluxos de documentos.
+  \item 338. Avanço tecnológico mais rápido que a capacidade de adaptação interna.
+\end{fofa}
+
+\categoriafofa{Ameaças}
+
+\begin{fofa}
+  \item 405. Mudanças em outras legislações que impactam as Fundações de Apoio.
+  \item 407. Exigências crescentes de órgãos de controle, aumentando a complexidade operacional.
+\end{fofa}
+
+\categoriafofa{Fortalezas}
+
+\begin{fofa}
+  \item 6101. Referência e pioneirismo técnico em tecnologias digitais em gestão e atividades entre as Fundações de Apoio.
+  \item 6102. Constante evolução da fronteira tecnológica para tecnologias digitais, possibilitando aumento da eficiência operacional.
+\end{fofa}
+
+\categoriafofa{Problemas}
+
+\begin{fofa}
+  \item 6201. Fragilidade no atendimento legal em segurança de dados.
+  \item 6202. As necessidades técnicas digitais e de segurança são subestimadas comparadas às vontades dos usuários.
+\end{fofa}
 
 % ============================================================
 % 3. ATIVIDADES
@@ -428,12 +514,15 @@ Custo estimado de R\$ 10.000,00 por mês, do segundo semestre de 2026 ao primeir
 % Com cinco atividades, os dois quadros não caem na mesma página em
 % paisagem, por isso o cronograma começa em página própria.
 %
-% Régua de 15 trimestres, de 3º tri/2026 a 1º tri/2030, como no Word.
+% Régua de 14 trimestres, de 3º tri/2026 a 4º tri/2029, alinhada ao
+% período de acompanhamento do plano. O ano de 2030 foi retirado do
+% quadro, então as faixas que avançavam sobre ele param no último
+% trimestre de 2029.
 %
 % Mapa das colunas (as duas primeiras são número e descrição):
-%   col:   3   4 |  5   6   7   8 |  9  10  11  12 | 13  14  15  16 | 17
-%   ano:  2026   |      2027      |      2028      |      2029      | 2030
-%   tri:  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º | 1º
+%   col:   3   4 |  5   6   7   8 |  9  10  11  12 | 13  14  15  16
+%   ano:  2026   |      2027      |      2028      |      2029
+%   tri:  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º | 1º  2º  3º  4º
 %
 % Faixas de execução derivadas das datas do resumo das atividades:
 %   01     08/26 a 02/27 ...... colunas 3 a 5
@@ -446,13 +535,14 @@ Custo estimado de R\$ 10.000,00 por mês, do segundo semestre de 2026 ao primeir
 %   03     02/27 a 05/29 ...... colunas 5 a 14
 %   03.a   02/27 a 04/29 ...... colunas 5 a 14
 %   03.b   04/29 a 05/29 ...... coluna 14
-%   04     06/29 a 01/30 ...... colunas 14 a 17
+%   04     06/29 a 01/30 ...... colunas 14 a 16 (truncada em 12/29)
 %   04.a   06/29 a 07/29 ...... colunas 14 e 15
 %   04.b   07/29 a 12/29 ...... colunas 15 e 16
-%   04.c   01/30 a 01/30 ...... coluna 17
-%   05     08/26 a 03/30 ...... colunas 3 a 17
+%   04.c   01/30 a 01/30 ...... coluna 16 (fora da régua, lançada no
+%                               último trimestre disponível)
+%   05     08/26 a 03/30 ...... colunas 3 a 16 (truncada em 12/29)
 %   05.a   08/26 a 12/26 ...... colunas 3 e 4
-%   05.b   01/27 a 03/30 ...... colunas 5 a 17
+%   05.b   01/27 a 03/30 ...... colunas 5 a 16
 %
 % Valores definidos até agora:
 %   01 / 01.b  R$ 120.000,00, contratação da consultoria.
@@ -461,7 +551,6 @@ Custo estimado de R\$ 10.000,00 por mês, do segundo semestre de 2026 ao primeir
 %   02 / 02.c  R$ 1.892.457,30 de custo salarial, sendo
 %              R$ 375.023,46 em 2026, R$ 375.023,46 em 2027,
 %              R$ 518.534,40 em 2028 e R$ 623.875,98 em 2029.
-%              O valor de 2030 ainda não foi informado.
 %              Total da atividade 02: R$ 1.922.457,30.
 %   04 / 04.a  R$ 120.000,00, contratação da auditoria.
 %   05         R$ 440.000,00, sendo R$ 10.000,00 por mês, com
@@ -472,7 +561,7 @@ Custo estimado de R\$ 10.000,00 por mês, do segundo semestre de 2026 ao primeir
 % A atividade 03 segue sem valor, por isso o TOTAL está marcado
 % como parcial.
 %
-% Atenção: cada linha precisa somar 17 colunas.
+% Atenção: cada linha precisa somar 16 colunas.
 % ============================================================
 \clearpage
 \secao{CRONOGRAMA FÍSICO-FINANCEIRO}
@@ -487,10 +576,11 @@ Atividades e subatividades posicionadas nos trimestres correspondentes ao seu in
 % 1.15 em vez do 1.2 original: com a subatividade 02.c o quadro ganhou
 % uma linha e passava da altura útil da página em paisagem.
 \renewcommand{\arraystretch}{1.15}
-% Larguras do Word: 460 / 3320 / 15 x 720 twips de um total de 14580.
-\setlength{\colTri}{\dimexpr0.049383\textwidth-2\tabcolsep\relax}
-\setlength{\colNum}{\dimexpr0.03155\textwidth-2\tabcolsep\relax}
-\setlength{\colAtiv}{\dimexpr\textwidth-\colNum-15\colTri-34\tabcolsep-18\arrayrulewidth\relax}
+% Larguras do Word: 460 / 3320 / 14 x 720 twips de um total de 13860
+% (o original tinha 15 colunas de trimestre; sem 2030 sobram 14).
+\setlength{\colTri}{\dimexpr0.051948\textwidth-2\tabcolsep\relax}
+\setlength{\colNum}{\dimexpr0.033189\textwidth-2\tabcolsep\relax}
+\setlength{\colAtiv}{\dimexpr\textwidth-\colNum-14\colTri-32\tabcolsep-17\arrayrulewidth\relax}
 \newcolumntype{T}{>{\centering\arraybackslash}p{\colTri}}
 % Largura de um vão de #1 colunas de trimestre
 \newcommand{\vaotri}[1]{\dimexpr #1\dimexpr\colTri+2\tabcolsep+\arrayrulewidth\relax-2\tabcolsep-\arrayrulewidth\relax}
