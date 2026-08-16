@@ -33,7 +33,7 @@
 \graphicspath{{img/}{./img/}}
 
 % --- Versão do plano (atualizar a cada alteração significativa)
-\newcommand{\PlanoVersao}{0.3}
+\newcommand{\PlanoVersao}{0.5}
 
 % --- Cores do documento Word
 \definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
@@ -176,9 +176,9 @@
 \hline
 DIRETRIZ & Transformação Digital \\
 \hline
-AÇÃO & Tornar as rotinas operacionais da Fundep mais eficientes com o uso de agentes de inteligência artificial, de modo a posicionar a Fundação como referência técnica entre as fundações de apoio. \\
+AÇÃO & Implementar Agentes de IA na Gestão de Projetos Ponta a Ponta.\\
 \hline
-RESPONSÁVEL & André Oliveira \\
+RESPONSÁVEL & Gerente de TI - André Vinícius de Oliveira \\
 \hline
 OBJETIVO ESTRATÉGICO VINCULADO & Otimização das Rotinas Operacionais por meio da Automação e Simplificação de Processos \\
 \hline
@@ -203,6 +203,74 @@ O crescimento da dependência tecnológica e da complexidade das demandas expõe
 
 Este plano de ação organiza, ao longo do quadriênio 2026-2029, a consolidação de uma plataforma corporativa única, a ampliação da automação e do uso de inteligência artificial, a garantia de alta disponibilidade dos sistemas e a eliminação progressiva de controles paralelos, com acompanhamento sistemático de prazos, responsáveis e indicadores.
 
+% --- Itens do diagnóstico institucional (matriz FOFA lapidada) associados
+% a esta ação. Extraídos do mapa elaborado pelos gerentes da Fundep,
+% disponível em docs/FOFA_LAPIDADA_FUNDEP_080426_113927 1.html.
+% A numeração entre parênteses é o identificador do item no mapa.
+Esta ação responde ao diagnóstico institucional elaborado pelos gerentes da Fundep. Relacionam-se a ela os seguintes itens da matriz FOFA, das fortalezas e dos problemas mapeados, identificados pela numeração de origem:
+
+\textbf{Forças}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (101) Excelência na gestão administrativa e financeira de projetos.
+  \item (103) Benchmarking nacional em excelência operacional no setor de fundações.
+  \item (109) Capital humano altamente qualificado e multidisciplinar.
+  \item (111) Vantagem competitiva em soluções de TI proprietárias.
+  \item (114) Incentivo da Alta Direção ao uso de IA e automação.
+  \item (110) Gestão tecnológica e de informações integrada e adaptável.
+  \item (122) Orientação a dados (Business Intelligence).
+\end{itemize}
+
+\textbf{Fraquezas}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (311) Confiabilidade dos dados financeiros e extratos.
+  \item (313) Ausência de gestão de processos.
+  \item (320) Mudanças de processos de forma setorizada.
+  \item (332) Deficiência de processos e controles manuais.
+  \item (319) Ausência de sistemas para suporte às atividades de algumas áreas.
+  \item (333) Sistema ERP com deficiências.
+  \item (328) Processos de trabalho fragmentados.
+  \item (325) Falta de integração de indicadores financeiros de ponta a ponta.
+  \item (304) Manutenção da qualidade dos serviços diante de turnovers.
+  \item (315) Dependência de pessoas específicas para processos críticos.
+  \item (317) Segurança da informação e proteção de dados deficientes.
+  \item (327) Decisões não baseadas em dados.
+  \item (316) Falta de atendimento integral à LGPD.
+  \item (323) Falta de cultura de gestão do conhecimento.
+  \item (331) Falta de integração dos fluxos de documentos.
+  \item (342) Falta de direcionamento para as mudanças e inovações.
+  \item (338) Avanço tecnológico mais rápido que a capacidade de adaptação interna.
+\end{itemize}
+
+\textbf{Oportunidades}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (221) Novo Sistema Financiado Externamente.
+  \item (206) Tecnologias digitais de Inteligência Artificial emergentes aplicadas a processos.
+  \item (220) Parcerias estratégicas com outras fundações de apoio.
+\end{itemize}
+
+\textbf{Ameaças}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (409) Escassez de mão de obra qualificada.
+  \item (407) Exigências crescentes de órgãos de controle, aumentando a complexidade operacional.
+\end{itemize}
+
+\textbf{Fortalezas}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (2102) Capacidade técnica operacional para atender demandas da UFMG de diferentes naturezas.
+  \item (6101) Referência e pioneirismo técnico em tecnologias digitais em gestão e atividades entre as Fundações de Apoio.
+  \item (6102) Constante evolução da fronteira tecnológica para tecnologias digitais, possibilitando aumento da eficiência operacional.
+\end{itemize}
+
+\textbf{Problemas}
+\begin{itemize}[leftmargin=1.25cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (2201) Fraca integração entre equipes na gestão ponta a ponta de projetos.
+  \item (2202) Despadronização das operações gerais na Fundep.
+  \item (2203) Gestão de risco não estruturada para ampliar a segurança da tomada de decisão.
+  \item (4203) Dependência de pessoas de referência.
+  \item (6201) Fragilidade no atendimento legal em segurança de dados.
+  \item (6202) As necessidades técnicas digitais e de segurança são subestimadas comparadas às vontades dos usuários.
+\end{itemize}
+
 % ============================================================
 % 3. ATIVIDADES
 % Atividade única deste plano, correspondente à atividade 02 do plano
@@ -216,12 +284,25 @@ Adoção de agentes de inteligência artificial para apoiar processos operaciona
 
 Indicador: redução mínima de 20\% no tempo médio de execução dos processos apoiados por inteligência artificial até 2029, tomando como base o período anterior à implementação.
 
-Investimento de R\$ 60.000,00 em equipamentos previsto para 2026, ano inicial da atividade. Os valores de 2027 e 2028 ainda permanecem zerados.
+Investimento total de R\$ 315.000,00 no período de julho de 2026 a março de 2028, integralmente alocado nos custos de desenvolvimento detalhados na alínea b). A alínea a) não tem custo próprio.
 
 \begin{enumerate}
   \item Investigar e implementar agentes de inteligência artificial nos processos operacionais.
 
         Levantamento dos processos operacionais da Fundep para identificar aqueles em que um agente de inteligência artificial é a solução adequada, seguido da implementação dos agentes nos processos selecionados, com apuração do tempo de execução antes e depois da adoção.
+
+  \item Desenvolvimento dos agentes de inteligência artificial.
+
+        Construção dos agentes selecionados na alínea anterior, com equipe contratada, ambiente de execução em nuvem e ferramentas de inteligência artificial de terceiros. Os custos previstos são:
+
+        \begin{itemize}[leftmargin=0.75cm,topsep=6pt,itemsep=6pt,parsep=0pt]
+          \item Equipamentos para a equipe contratada: R\$ 42.000,00, em aquisição única no início do projeto.
+          \item Uso de ambiente em nuvem para executar as aplicações: R\$ 5.000,00 por mês, do início ao fim do projeto.
+          \item Uso de inteligência artificial de terceiros: R\$ 5.000,00 por mês, do início ao fim do projeto.
+          \item Agente de inteligência artificial de terceiro para auxiliar no desenvolvimento: R\$ 3.000,00 por mês, do início ao fim do projeto.
+        \end{itemize}
+
+        Os três custos mensais somam R\$ 13.000,00 por mês. Nos 21 meses do período (julho de 2026 a março de 2028), o custeio mensal chega a R\$ 273.000,00 que, acrescidos dos R\$ 42.000,00 de equipamentos da equipe contratada, resultam em R\$ 315.000,00.
 \end{enumerate}
 
 % ============================================================
@@ -266,9 +347,11 @@ Investimento de R\$ 60.000,00 em equipamentos previsto para 2026, ano inicial da
 \cellcolor{azulTitulo}\bfseries\color{white}Redução mínima de 20\% no tempo médio de execução dos processos apoiados por IA &
 \cellcolor{azulTitulo}\bfseries\color{white}jul/26 &
 \cellcolor{azulTitulo}\bfseries\color{white}mar/28 &
-\cellcolor{azulTitulo}\bfseries\color{white}Diretor de TI \\
+\cellcolor{azulTitulo}\bfseries\color{white}Walmir Caminhas - Diretor de TI \\
 \hline
-\cellcolor{azulClaro}01.a & \cellcolor{cinzaClaro}Investigar e implementar agentes de inteligência artificial nos processos operacionais em que essa é a solução adequada. & \cellcolor{cinzaClaro}Processos identificados e agentes implementados, com redução do tempo médio de execução. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape Diretor de TI \\
+\cellcolor{azulClaro}01.a & \cellcolor{cinzaClaro}Investigar e implementar agentes de inteligência artificial nos processos operacionais em que essa é a solução adequada. & \cellcolor{cinzaClaro}Processos identificados e agentes implementados, com redução do tempo médio de execução. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape Walmir Caminhas - Diretor de TI \\
+\hline
+\cellcolor{azulClaro}01.b & \cellcolor{cinzaClaro}Desenvolver os agentes de inteligência artificial, com equipe contratada, ambiente de execução em nuvem e ferramentas de inteligência artificial de terceiros. & \cellcolor{cinzaClaro}Agentes desenvolvidos e em operação nos processos selecionados. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape Walmir Caminhas - Diretor de TI \\
 \arrayrulecolor{bordaEscura}\hline
 \end{tabular}
 \arrayrulecolor{black}
@@ -290,7 +373,7 @@ Investimento de R\$ 60.000,00 em equipamentos previsto para 2026, ano inicial da
 % ============================================================
 \secao{CRONOGRAMA FÍSICO-FINANCEIRO}
 
-Atividade posicionada nos trimestres correspondentes ao seu início e ao seu término. Os R\$ 60.000,00 de 2026 referem-se à aquisição de equipamentos no ano inicial da atividade. Os valores de 2027 e do 1º trimestre de 2028 ainda serão definidos, de modo que o total apresentado é parcial.
+Atividade posicionada nos trimestres correspondentes ao seu início e ao seu término, com os valores agrupados por ano. A alínea a) não tem custo próprio. A alínea b) concentra todo o investimento: R\$ 42.000,00 de equipamentos para a equipe contratada, em 2026, mais R\$ 13.000,00 por mês de ambiente em nuvem, uso de inteligência artificial de terceiros e agente de terceiro de apoio ao desenvolvimento, distribuídos pelos 21 meses do período. O valor de 2028 corresponde ao 1º trimestre, quando a atividade se encerra.
 
 \begingroup
 \singlespacing
@@ -321,17 +404,27 @@ Atividade posicionada nos trimestres correspondentes ao seu início e ao seu té
 \cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri &
 \cellcolor{azulCelula}1º tri & \cellcolor{azulCelula}2º tri & \cellcolor{azulCelula}3º tri & \cellcolor{azulCelula}4º tri \\
 \hline
-% --- Atividade 01: 3º tri/26 a 1º tri/28 (colunas 3 a 9)
+% --- Atividade 01: 3º tri/26 a 1º tri/28.
+% Valores agrupados por ano: 2026 (colunas 3-4), 2027 (5-8) e 2028 (9-12).
 \rotulo{01 - Reduzir o tempo operacional com agentes de IA} &
-\multicolumn{2}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 60.000,00} &
-\multicolumn{5}{c|}{\caixa{cinzaMedio}{\vaotri{5}}{}} &  &  &  &  &  &  &  \\
+% Um valor de seis dígitos em 12pt não cabe no vão de dois trimestres,
+% por isso os valores desta linha ficam em \footnotesize, como nas alíneas.
+\multicolumn{2}{c|}{\cellcolor{cinzaMedio}\footnotesize\bfseries R\$ 120.000,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaMedio}\footnotesize\bfseries R\$ 156.000,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaMedio}\footnotesize\bfseries R\$ 39.000,00} &  &  &  &  \\
 \hline
  & \footnotesize a) Investigar e implementar agentes de IA nos processos &
-\multicolumn{2}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 60.000,00} &
-\multicolumn{5}{c|}{\caixa{cinzaE8}{\vaotri{5}}{}} &  &  &  &  &  &  &  \\
+\multicolumn{2}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 0,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 0,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 0,00} &  &  &  &  \\
+\hline
+ & \footnotesize b) Desenvolver os agentes de IA (equipe, nuvem e IA de terceiros) &
+\multicolumn{2}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 120.000,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 156.000,00} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}\footnotesize R\$ 39.000,00} &  &  &  &  \\
 \hline
 \multicolumn{2}{|l|}{\cellcolor{azulVivo}\bfseries\color{white}TOTAL} &
-\multicolumn{14}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 60.000,00 (parcial: valores de 2027 e 2028 a definir)} \\
+\multicolumn{14}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 315.000,00} \\
 \hline
 \end{tabular}
 \arrayrulecolor{black}
