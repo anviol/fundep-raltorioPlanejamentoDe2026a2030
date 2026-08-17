@@ -32,7 +32,7 @@
 
 % --- Cores do documento Word
 \definecolor{azulTitulo}{HTML}{1F4E79}   % títulos e linhas de atividade da tabela resumo
-\definecolor{azulAtividade}{HTML}{2F5496} % títulos das atividades 01..05
+\definecolor{azulAtividade}{HTML}{2F5496} % títulos das atividades 01..04
 \definecolor{azulClaro}{HTML}{D9E2F3}    % coluna esquerda da tabela de identificação
 \definecolor{azulCabecalho}{HTML}{9CC2E5} % cabeçalho da tabela resumo
 \definecolor{azulZebra}{HTML}{EAF0FA}    % zebra da coluna Item
@@ -112,19 +112,19 @@
 \hline
 DIRETRIZ & Transformação Digital \\
 \hline
-AÇÃO & Tornar as rotinas operacionais da Fundep mais eficientes com o uso de tecnologias digitais, consolidando uma plataforma corporativa única, eliminando controles paralelos e ampliando a automação e o uso de inteligência artificial, de modo a posicionar a Fundação como referência técnica entre as fundações de apoio. \\
+AÇÃO & Implementar o GPF 2.0 \\
 \hline
-RESPONSÁVEL & André Oliveira \\
+RESPONSÁVEL & Gerente de TI - André Vinícius de Oliveira \\
 \hline
 OBJETIVO ESTRATÉGICO VINCULADO & Otimização das Rotinas Operacionais por meio da Automação e Simplificação de Processos \\
 \hline
-META(S) OPERACIONAL(IS) VINCULADA(S) & Desenvolver e implementar o GPF 2.0; reduzir o tempo operacional com agentes de inteligência artificial; garantir a máxima disponibilidade dos sistemas; eliminar o uso de controles paralelos no fluxo de gestão de projetos; e normalizar a maioria dos processos críticos. \\
+META(S) OPERACIONAL(IS) VINCULADA(S) & Desenvolver e implementar o GPF 2.0; integrar os agentes de inteligência artificial aos sistemas GPF 1.0 e GPF 2.0; garantir a máxima disponibilidade dos sistemas; e eliminar o uso de controles paralelos no fluxo de gestão de projetos. \\
 \hline
-PERÍODO DE ACOMPANHAMENTO & Julho de 2026 a março de 2030 \\
+PERÍODO DE ACOMPANHAMENTO & Julho de 2026 a dezembro de 2029 \\
 \hline
 ÁREAS ENVOLVIDAS & Conselho Diretor, Tecnologia da Informação, CIAs, Prestação de Contas, Compras, Importação, Logística, Gestão de Documentos, Administração de Pessoal, Gestão de Pessoas, Negócios e Parcerias, Financeiro e Contabilidade, Compliance, Jurídico. \\
 \hline
-VERSÃO & 0.3 \\
+VERSÃO & 0.5 \\
 \hline
 \end{tabular}
 \arrayrulecolor{black}
@@ -132,31 +132,112 @@ VERSÃO & 0.3 \\
 
 \secao{JUSTIFICATIVA}
 
-O crescimento da dependência tecnológica e da complexidade das demandas expõe fragilidades como fragmentação de sistemas, controles manuais (planilhas, e-mails) e variações informais entre áreas, comprometendo a rastreabilidade e a eficiência. A modernização tecnológica é essencial para sustentar a operação, padronizar processos críticos e assegurar qualidade e previsibilidade.
+O crescimento da dependência tecnológica e da complexidade das demandas expõe fragilidades como fragmentação de sistemas, controles manuais (planilhas, e-mails) e variações informais entre áreas, comprometendo a rastreabilidade e a eficiência. A modernização tecnológica é essencial para sustentar a operação, integrar os sistemas corporativos e assegurar qualidade e previsibilidade.
 
-Este plano de ação organiza, ao longo do quadriênio 2026-2030, a consolidação de uma plataforma corporativa única, a ampliação da automação e do uso de inteligência artificial, a garantia de alta disponibilidade dos sistemas e a eliminação progressiva de controles paralelos, com acompanhamento sistemático de prazos, responsáveis e indicadores.
+Este plano de ação organiza, ao longo do quadriênio 2026-2029, a consolidação de uma plataforma corporativa única, a ampliação da automação e do uso de inteligência artificial, a garantia de alta disponibilidade dos sistemas e a eliminação progressiva de controles paralelos, com acompanhamento sistemático de prazos, responsáveis e indicadores.
+
+% --- Itens do diagnóstico institucional (matriz FOFA lapidada) associados
+% a esta ação. Extraídos do mapa elaborado pelos gerentes da Fundep,
+% disponível em docs/FOFA_LAPIDADA_FUNDEP_080426_113927 1.html.
+% A numeração entre parênteses é o identificador do item no mapa.
+Esta ação responde ao diagnóstico institucional elaborado pelos gerentes da Fundep. Relacionam-se a ela os seguintes itens da matriz FOFA, das fortalezas e dos problemas mapeados, identificados pela numeração de origem:
+
+\textbf{Forças}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (101) Excelência na gestão administrativa e financeira de projetos.
+  \item (103) Benchmarking nacional em excelência operacional no setor de fundações.
+  \item (109) Capital humano altamente qualificado e multidisciplinar.
+  \item (111) Vantagem competitiva em soluções de TI proprietárias.
+  \item (114) Incentivo da Alta Direção ao uso de IA e automação.
+  \item (110) Gestão tecnológica e de informações integrada e adaptável.
+  \item (122) Orientação a dados (Business Intelligence).
+\end{itemize}
+
+\textbf{Fraquezas}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (311) Confiabilidade dos dados financeiros e extratos.
+  \item (313) Ausência de gestão de processos.
+  \item (320) Mudanças de processos de forma setorizada.
+  \item (332) Deficiência de processos e controles manuais.
+  \item (319) Ausência de sistemas para suporte às atividades de algumas áreas.
+  \item (333) Sistema ERP com deficiências.
+  \item (328) Processos de trabalho fragmentados.
+  \item (321) Falta de gestão de riscos.
+  \item (303) Falta de gestão de contingência.
+  \item (304) Manutenção da qualidade dos serviços diante de turnovers.
+  \item (325) Falta de integração de indicadores financeiros de ponta a ponta.
+  \item (340) Falta de regramento formal para as tomadas de decisão.
+  \item (315) Dependência de pessoas específicas para processos críticos.
+  \item (317) Segurança da informação e proteção de dados deficientes.
+  \item (327) Decisões não baseadas em dados.
+  \item (316) Falta de atendimento integral à LGPD.
+  \item (301) Fragilidade na comunicação interna: institucional e interáreas.
+  \item (323) Falta de cultura de gestão do conhecimento.
+  \item (331) Falta de integração dos fluxos de documentos.
+  \item (312) Instrumentos de governança desatualizados ou inexistentes.
+  \item (342) Falta de direcionamento para as mudanças e inovações.
+  \item (338) Avanço tecnológico mais rápido que a capacidade de adaptação interna.
+\end{itemize}
+
+\textbf{Oportunidades}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (221) Novo Sistema Financiado Externamente.
+  \item (206) Tecnologias digitais de Inteligência Artificial emergentes aplicadas a processos.
+  \item (220) Parcerias estratégicas com outras fundações de apoio.
+\end{itemize}
+
+\textbf{Ameaças}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (409) Escassez de mão de obra qualificada.
+  \item (407) Exigências crescentes de órgãos de controle, aumentando a complexidade operacional.
+\end{itemize}
+
+\textbf{Fortalezas}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (2102) Capacidade técnica operacional para atender demandas da UFMG de diferentes naturezas.
+  \item (6101) Referência e pioneirismo técnico em tecnologias digitais em gestão e atividades entre as Fundações de Apoio.
+  \item (6102) Constante evolução da fronteira tecnológica para tecnologias digitais, possibilitando aumento da eficiência operacional.
+\end{itemize}
+
+\textbf{Problemas}
+\begin{itemize}[leftmargin=1.27cm,topsep=0pt,itemsep=2pt,parsep=0pt]
+  \item (2201) Fraca integração entre equipes na gestão ponta a ponta de projetos.
+  \item (2202) Despadronização das operações gerais na Fundep.
+  \item (2203) Gestão de risco não estruturada para ampliar a segurança da tomada de decisão.
+  \item (4203) Dependência de pessoas de referência.
+  \item (6201) Fragilidade no atendimento legal em segurança de dados.
+  \item (6202) As necessidades técnicas digitais e de segurança são subestimadas comparadas às vontades dos usuários.
+\end{itemize}
 
 \secao{ATIVIDADES}
 
 \atividade{01. Desenvolver e implementar o GPF 2.0}
 
-Desenvolvimento e implantação de plataforma corporativa única, modular e escalável, cobrindo o ciclo de vida do projeto, de modo que, ao fim do ciclo 2026-2030, 100\% dos projetos ativos operem integralmente no sistema. Desenvolvimento previsto até 2028 e implantação até 2029.
+Desenvolvimento e implantação de plataforma corporativa única, modular e escalável, cobrindo o ciclo de vida do projeto, de modo que, ao fim do ciclo 2026-2029, 100\% dos projetos ativos operem integralmente no sistema. Desenvolvimento previsto até 2028 e implantação até 2029.
 
-Indicadores: percentual de projetos ativos operando na plataforma (meta: 100\% até 2030); percentual de escopo desenvolvido (meta: 100\% até 2028), medido trimestralmente.
+Investimento previsto de R\$ 2.832.967,52, dividido em três parcelas conforme a etapa:
 
-\atividade{02. Reduzir o tempo operacional com agentes de inteligência artificial.}
+\begin{enumerate}
+  \item Manutenção do espaço de trabalho, R\$ 30.000,00 em 2027: adequação e conservação do ambiente ocupado pela equipe durante a construção da plataforma.
+  \item Lanche e utilidades da equipe terceirizada, R\$ 202.967,52 entre o 3º trimestre de 2026 e o 2º trimestre de 2028: R\$ 8.456,98 por mês, ao longo de 24 meses, cobrindo pães e frutas, auxiliar de limpeza, energia elétrica e água. Por ano, o gasto fica em R\$ 50.741,88 em 2026 (seis meses), R\$ 101.483,76 em 2027 e R\$ 50.741,88 em 2028 (seis meses).
+  \item Implantação, R\$ 2.600.000,00 em 2029: entrada em produção da plataforma e migração dos projetos ativos. A composição desta parcela (equipe, licenças, infraestrutura e serviços de terceiros) está a preencher.
+\end{enumerate}
 
-Adoção de agentes de inteligência artificial para apoiar processos operacionais, reduzindo o tempo médio de execução. Período de julho/2026 a março/2028.
+Indicadores: percentual de projetos ativos operando na plataforma (meta: 100\% até 2029); percentual de escopo desenvolvido (meta: 100\% até 2028), medido trimestralmente.
 
-Indicador: redução mínima de 20\% no tempo médio de execução dos processos apoiados por IA até 2030, tomando como base o período anterior à implementação.
+\atividade{02. Integrar os agentes de inteligência artificial aos sistemas GPF 1.0 e GPF 2.0.}
 
-Investimento de R\$ 60.000,00 em equipamentos previsto para 2026, ano inicial da atividade. Os valores de 2027 e 2028 ainda serão definidos.
+Integração dos agentes de inteligência artificial desenvolvidos no plano de ação \textit{Implementar Agentes de IA na Gestão de Projetos Ponta a Ponta} aos sistemas corporativos, de modo que operem tanto sobre o GPF 1.0, ainda em uso durante a transição, quanto sobre o GPF 2.0, à medida que seus módulos entrarem em produção. Período de julho/2026 a março/2028.
+
+Investimento previsto de R\$ 0,00. A atividade não tem custo próprio porque os agentes já são custeados no plano de ação específico de agentes de IA, que responde pela aquisição de equipamentos, pelas licenças de uso e pela operação dos modelos. Aqui resta o trabalho de integração, executado pela equipe própria de TI com as ferramentas e a infraestrutura já contratadas, sem aquisição adicional prevista.
+
+Indicador: percentual de agentes de inteligência artificial integrados aos sistemas corporativos (meta: 100\% dos agentes em produção até 2028), medido trimestralmente.
 
 \atividade{03. Garantir a máxima disponibilidade dos sistemas.}
 
-Estruturação de processos e infraestrutura para assegurar a disponibilidade dos sistemas críticos. Período de junho/2026 a março/2030.
+Estruturação de processos e infraestrutura para assegurar a disponibilidade dos sistemas críticos. Período de junho/2026 a março/2029.
 
-Indicador: disponibilidade igual ou superior a 99\% por sistema crítico, medida mensalmente e consolidada anualmente (excluídas manutenções programadas e comunicadas).
+Investimento previsto de R\$ 4.550.000,00, o maior desta ação, por se tratar do custeio contínuo do ambiente que sustenta a operação: infraestrutura, licenças, contratos de suporte e monitoramento dos sistemas críticos. Diferente das demais atividades, o gasto se repete todo ano enquanto os sistemas estiverem em operação, e não se concentra em uma entrega. A composição detalhada de cada ano está a preencher, assim como o valor de 2026, ano de início da atividade.
 
 Gasto anual previsto para a atividade:
 
@@ -165,6 +246,8 @@ Gasto anual previsto para a atividade:
 \arrayrulecolor{bordaEscura}
 \renewcommand{\arraystretch}{1.3}
 \setlength{\tabcolsep}{4pt}
+% Tabela estreita: centralizada na largura do texto.
+\noindent\makebox[\textwidth][c]{%
 \begin{tabular}{|>{\centering\arraybackslash}p{0.10\textwidth}|>{\raggedleft\arraybackslash}p{0.22\textwidth}|}
 \hline
 \cellcolor{azulCabecalho}\bfseries Ano &
@@ -179,21 +262,20 @@ Gasto anual previsto para a atividade:
 \cellcolor{azulVivo}\bfseries\color{white}Total &
 \cellcolor{azulVivo}\bfseries\color{white}R\$ 4.550.000,00 \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \arrayrulecolor{black}
 \endgroup
 
-\atividade{04. Eliminar o uso de controles paralelos no fluxo de gestão de projetos.}
+Indicador: disponibilidade igual ou superior a 99\% por sistema crítico, medida mensalmente e consolidada anualmente (excluídas manutenções programadas e comunicadas).
 
-Substituição de planilhas, e-mails e similares por rotinas integradas ao sistema corporativo, de ponta a ponta no fluxo de gestão de projetos. Período de maio/2027 a março/2030.
+\atividade{04. Eliminar o uso de controles paralelos no fluxo de gestão de projetos ponta a ponta.}
 
-Indicador: zero rotinas operacionais que ainda utilizem planilhas, e-mail ou similares até 2030.
+Substituição de planilhas, e-mails e similares por rotinas integradas ao sistema corporativo, de ponta a ponta no fluxo de gestão de projetos ponta a ponta. Período de maio/2027 a dezembro/2029.
 
-\atividade{05. Normalizar a maioria dos processos críticos.}
+Investimento previsto de R\$ 0,00. As rotinas que substituem as planilhas e os e-mails são as próprias funcionalidades do GPF 2.0, já custeadas na atividade 01, de modo que nada é adquirido especificamente para esta atividade. O esforço é de mapeamento, transição e descontinuação dos controles paralelos, conduzido pela equipe de TI em conjunto com os gestores das áreas, com pessoal já alocado.
 
-Mapeamento, padronização e operação dos processos críticos no sistema corporativo. Período de maio/2027 a março/2030.
-
-Indicador: percentual de processos críticos padronizados e em operação (meta: $\geq 80\%$ até 2030), com medição mensal.
+Indicador: zero rotinas operacionais que ainda utilizem planilhas, e-mail ou similares até 2029.
 
 \secao{RESUMO DAS ATIVIDADES}
 
@@ -213,19 +295,17 @@ Indicador: percentual de processos críticos padronizados e em operação (meta:
 \hline
 01 & Desenvolver e implementar o GPF 2.0 como plataforma corporativa única, modular e escalável. & 100\% dos projetos ativos operando na plataforma e 100\% do escopo desenvolvido. & jul/26 & dez/29 & \itshape André Oliveira \\
 \hline
-\cellcolor{cinzaClaro}02 & \cellcolor{cinzaClaro}Reduzir o tempo operacional com agentes de inteligência artificial. & \cellcolor{cinzaClaro}Redução mínima de 20\% no tempo médio de execução dos processos apoiados por IA. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape Diretor de TI \\
+\cellcolor{cinzaClaro}02 & \cellcolor{cinzaClaro}Integrar os agentes de inteligência artificial aos sistemas GPF 1.0 e GPF 2.0. & \cellcolor{cinzaClaro}100\% dos agentes de IA em produção integrados aos sistemas corporativos. & \cellcolor{cinzaClaro}jul/26 & \cellcolor{cinzaClaro}mar/28 & \cellcolor{cinzaClaro}\itshape André Oliveira \\
 \hline
-03 & Garantir a máxima disponibilidade dos sistemas. & Disponibilidade $\geq 99\%$ por sistema crítico. & jun/26 & mar/30 & \itshape André Oliveira \\
+03 & Garantir a máxima disponibilidade dos sistemas. & Disponibilidade $\geq 99\%$ por sistema crítico. & jun/26 & dez/29 & \itshape André Oliveira \\
 \hline
-\cellcolor{cinzaClaro}04 & \cellcolor{cinzaClaro}Eliminar o uso de controles paralelos no fluxo de gestão de projetos. & \cellcolor{cinzaClaro}Zero rotinas operacionais utilizando planilhas, e-mail ou similares. & \cellcolor{cinzaClaro}mai/27 & \cellcolor{cinzaClaro}mar/30 & \cellcolor{cinzaClaro}\itshape André Oliveira e Gestores das áreas \\
-\hline
-05 & Normalizar a maioria dos processos críticos. & $\geq 80\%$ dos processos críticos padronizados e em operação. & mai/27 & mar/30 & \itshape André Oliveira e Gestores das áreas \\
+\cellcolor{cinzaClaro}04 & \cellcolor{cinzaClaro}Eliminar o uso de controles paralelos no fluxo de gestão de projetos ponta a ponta. & \cellcolor{cinzaClaro}Zero rotinas operacionais utilizando planilhas, e-mail ou similares. & \cellcolor{cinzaClaro}mai/27 & \cellcolor{cinzaClaro}dez/29 & \cellcolor{cinzaClaro}\itshape André Oliveira e Gestores das áreas \\
 \hline
 \end{tabular}
 \arrayrulecolor{black}
 \endgroup
 
-\secao{CRONOGRAMA FÍSICO}
+\secao{CRONOGRAMA FÍSICO-FINANCEIRO}
 
 \begingroup
 % Mesmo layout do cronograma físico-financeiro do plano de segurança
@@ -250,18 +330,23 @@ Indicador: percentual de processos críticos padronizados e em operação (meta:
 \cellcolor{azulCelula}1º tri \\
 \hline
 \multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 01 - Desenvolver e implementar o GPF 2.0} &
- & \multicolumn{14}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 2.630.000,00} & \\
+ & \multicolumn{14}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 2.832.967,52} & \\
 \hline
  & a) Desenvolvimento: manutenção do espaço de trabalho &
- & \multicolumn{2}{c|}{\cellcolor{cinzaE8}} &
+\multicolumn{3}{c|}{} &
 \multicolumn{4}{c|}{\cellcolor{cinzaE8}R\$ 30.000,00} &
-\multicolumn{4}{c|}{\cellcolor{cinzaE8}} & & & & & \\
+\multicolumn{9}{c|}{} \\
 \hline
- & b) Implantação & & & & & & & & & & & & \multicolumn{4}{c|}{\cellcolor{cinzaE8}R\$ 2.600.000,00} & \\
+ & b) Desenvolvimento: lanche e utilidades da equipe terceirizada &
+ & \multicolumn{8}{c|}{\cellcolor{cinzaE8}R\$ 202.967,52} &
+\multicolumn{7}{c|}{} \\
 \hline
-\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 02 - Reduzir tempo operacional com agentes de IA} &
- & \multicolumn{2}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 60.000,00} &
-\multicolumn{5}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} & & & & & & & & \\
+ & c) Implantação &
+\multicolumn{11}{c|}{} &
+\multicolumn{4}{c|}{\cellcolor{cinzaE8}R\$ 2.600.000,00} & \\
+\hline
+\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 02 - Integrar agentes de IA ao GPF 1.0 e 2.0} &
+ & \multicolumn{7}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 0,00} & & & & & & & & \\
 \hline
 \multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 03 - Garantir máxima disponibilidade dos sistemas} &
 % Os trechos de 2026 e 2030 ficam sem valor (ainda a definir); usar
@@ -273,139 +358,13 @@ Indicador: percentual de processos críticos padronizados e em operação (meta:
 \cellcolor{cinzaMedio} \\
 \hline
 \multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 04 - Eliminar uso de controles paralelos} &
- & & & & \multicolumn{12}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} \\
-\hline
-\multicolumn{2}{|l|}{\cellcolor{cinzaMedio}\bfseries 05 - Normalizar processos críticos} &
- & & & & \multicolumn{12}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ a definir} \\
+ & & & & \multicolumn{12}{c|}{\cellcolor{cinzaMedio}\bfseries R\$ 0,00} \\
 \hline
 \multicolumn{2}{|l|}{\cellcolor{azulVivo}\bfseries\color{white}TOTAL} &
-\multicolumn{16}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 7.240.000,00 (parcial: trechos sem valor ainda a definir)} \\
+\multicolumn{16}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 7.382.967,52 (parcial: trechos sem valor ainda a definir)} \\
 \hline
 \end{tabular}%
 }
 \endgroup
-
-\secao{AÇÕES OPERACIONAIS E VINCULAÇÃO ORÇAMENTÁRIA}
-
-As ações operacionais materializam as atividades previstas em iniciativas concretas, cada uma vinculada ao objetivo estratégico correspondente e com o respectivo investimento estimado para o quadriênio 2026-2030.
-
-\begingroup
-\footnotesize
-\arrayrulecolor{bordaEscura}
-\renewcommand{\arraystretch}{1.3}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{|>{\centering\arraybackslash}p{0.05\textwidth}|p{0.36\textwidth}|p{0.29\textwidth}|>{\centering\arraybackslash}p{0.18\textwidth}|}
-\hline
-\cellcolor{azulCabecalho}\bfseries Item &
-\cellcolor{azulCabecalho}\centering\arraybackslash\bfseries Ação Operacional &
-\cellcolor{azulCabecalho}\centering\arraybackslash\bfseries Objetivo Estratégico Vinculado &
-\cellcolor{azulCabecalho}\bfseries Investimento 2026-2030 \\
-\hline
-01 & Desenvolvimento e implantação do GPF 2.0 como plataforma corporativa única. & Otimizar as Rotinas Operacionais por meio da Automação e Simplificação de Processos & R\$ 2.630.000,00 \\
-\hline
-\cellcolor{cinzaClaro}02 & \cellcolor{cinzaClaro}Adoção de agentes de inteligência artificial e ferramentas de automação. & \cellcolor{cinzaClaro}Otimizar as Rotinas Operacionais por meio da Automação e Simplificação de Processos & \cellcolor{cinzaClaro}R\$ 60.000,00 \\
-\hline
-03 & Infraestrutura e processos para alta disponibilidade dos sistemas críticos. & Otimização das Rotinas Operacionais por meio da Automação e Simplificação de Processos & R\$ 4.550.000,00 \\
-\hline
-\multicolumn{3}{|r|}{\caixa[r]{azulVivo}{\dimexpr0.70\textwidth+8.8pt\relax}{\bfseries\color{white}Total estimado das ações operacionais (parcial)}} &
-\multicolumn{1}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ 7.240.000,00} \\
-\hline
-\end{tabular}
-\arrayrulecolor{black}
-\endgroup
-
-\secao{RESUMO DE INVESTIMENTO}
-
-Investimento anual estimado para as ações operacionais do plano (a detalhar conforme composição de equipe, contratações, licenças e infraestrutura):
-
-\begingroup
-\footnotesize
-\arrayrulecolor{bordaEscura}
-\renewcommand{\arraystretch}{1.3}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{|>{\centering\arraybackslash}p{0.07\textwidth}|p{0.62\textwidth}|>{\centering\arraybackslash}p{0.15\textwidth}|}
-\hline
-\cellcolor{azulCabecalho}\bfseries Ano &
-\cellcolor{azulCabecalho}\centering\arraybackslash\bfseries Descrição / Composição &
-\cellcolor{azulCabecalho}\bfseries Custo anual estimado \\
-\hline
-2026 & A detalhar & R\$ a definir \\
-\hline
-\cellcolor{cinzaClaro}2027 & \cellcolor{cinzaClaro}A detalhar & \cellcolor{cinzaClaro}R\$ a definir \\
-\hline
-2028 & A detalhar & R\$ a definir \\
-\hline
-\cellcolor{cinzaClaro}2029 & \cellcolor{cinzaClaro}A detalhar & \cellcolor{cinzaClaro}R\$ a definir \\
-\hline
-2030 & A detalhar & R\$ a definir \\
-\hline
-\multicolumn{2}{|r|}{\caixa[r]{azulVivo}{\dimexpr0.69\textwidth+0.4pt\relax}{\bfseries\color{white}Total estimado 2026-2030}} &
-\multicolumn{1}{c|}{\cellcolor{azulVivo}\bfseries\color{white}R\$ a definir} \\
-\hline
-\end{tabular}
-\arrayrulecolor{black}
-\endgroup
-
-\secao{CRONOGRAMA FINANCEIRO}
-
-Investimento anual estimado (valores ilustrativos, ajustar conforme os valores definidos):
-
-\begingroup
-\footnotesize
-\arrayrulecolor{bordaEscura}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{0.24\textwidth}|*{5}{>{\centering\arraybackslash}p{0.115\textwidth}|}}
-\hline
-\cellcolor{azulCelula}\bfseries Ano &
-\cellcolor{azulVivo}\bfseries\color{white}2026 & \cellcolor{azulVivo}\bfseries\color{white}2027 &
-\cellcolor{azulVivo}\bfseries\color{white}2028 & \cellcolor{azulVivo}\bfseries\color{white}2029 &
-\cellcolor{azulVivo}\bfseries\color{white}2030 \\
-\hline
-Investimento anual estimado &
-\cellcolor{cinzaE8}R\$ a definir & \cellcolor{cinzaE8}R\$ a definir & \cellcolor{cinzaE8}R\$ a definir &
-\cellcolor{cinzaE8}R\$ a definir & \cellcolor{cinzaE8}R\$ a definir \\
-\hline
-\end{tabular}
-\arrayrulecolor{black}
-\endgroup
-
-\secao{CRONOGRAMA FÍSICO-FINANCEIRO}
-
-Visão integrada: no topo, a execução física das atividades; na base, o investimento anual correspondente (a preencher), ambos alinhados à mesma régua de anos.
-
-\begingroup
-\footnotesize
-\arrayrulecolor{bordaEscura}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{0.26\textwidth}|*{5}{>{\centering\arraybackslash}p{0.115\textwidth}|}}
-\cline{2-6}
-\multicolumn{1}{c|}{} &
-\cellcolor{azulVivo}\bfseries\color{white}2026 & \cellcolor{azulVivo}\bfseries\color{white}2027 &
-\cellcolor{azulVivo}\bfseries\color{white}2028 & \cellcolor{azulVivo}\bfseries\color{white}2029 &
-\cellcolor{azulVivo}\bfseries\color{white}2030 \\
-\hline
-GPF 2.0 &
-\multicolumn{3}{c|}{\cellcolor{azulVivo}\bfseries\color{white}Desenvolvimento} &
-\multicolumn{1}{c|}{\caixa{azulVivo}{0.115\textwidth}{\scriptsize\bfseries\color{white}Implementação}} & \\
-\hline
-Agentes de IA & \multicolumn{3}{c|}{\caixa{azulVivo}{\vaoano{3}}{}} & & \\
-\hline
-Disponibilidade dos sistemas & \multicolumn{5}{c|}{\caixa{azulVivo}{\vaoano{5}}{}} \\
-\hline
-Controles paralelos & & \multicolumn{4}{c|}{\caixa{azulVivo}{\vaoano{4}}{}} \\
-\hline
-Processos críticos & & \multicolumn{4}{c|}{\caixa{azulVivo}{\vaoano{4}}{}} \\
-\hline
-Investimento anual {\scriptsize(a preencher)} &
-\cellcolor{cinzaE8}a definir & \cellcolor{cinzaE8}a definir & \cellcolor{cinzaE8}a definir &
-\cellcolor{cinzaE8}a definir & \cellcolor{cinzaE8}a definir \\
-\hline
-\end{tabular}
-\arrayrulecolor{black}
-\endgroup
-
-\secao{RESULTADOS ESPERADOS}
-
-Consolidação de uma plataforma corporativa integrada, com processos digitalizados, padronizados e rastreáveis; redução expressiva de controles paralelos e do tempo operacional; ganhos de eficiência com automação e IA; e alta disponibilidade dos sistemas críticos. Com isso, a Fundep fortalece sua eficiência operacional, confiabilidade em auditorias e posição de referência técnica.
 
 \end{document}
