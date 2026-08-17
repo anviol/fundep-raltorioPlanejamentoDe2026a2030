@@ -59,6 +59,19 @@ latexmk -c    # limpa auxiliares
 - No macOS, o TeX fica em `/Library/TeX/texbin`. Se `latexmk` não for encontrado, exportar esse caminho no `PATH`.
 - No VS Code, a receita compartilhada está em [.vscode/settings.json](.vscode/settings.json) (extensão LaTeX Workshop, build automático ao salvar).
 
+## 4.1. Versão em Word dos planos de ação
+
+Os planos de ação também são publicados em `.docx`, gerados por script, não por conversão automática do LaTeX:
+
+```bash
+python3 tools/gerar_planos_docx.py    # requer python-docx
+```
+
+- [tools/fundep_docx.py](tools/fundep_docx.py): biblioteca com o papel timbrado, o rodapé institucional, o cabeçalho "Página N", as cores e os utilitários de tabela.
+- [tools/gerar_planos_docx.py](tools/gerar_planos_docx.py): conteúdo de cada plano, transcrito do `.tex` correspondente.
+
+Ao alterar um `.tex`, replicar a alteração no gerador e rodar o script de novo, para que o `.docx` não fique defasado. Os `.docx` ficam na raiz, com o mesmo nome do `.tex` de origem.
+
 ## 5. Versionamento
 
 - Auxiliares LaTeX e PDFs de saída são ignorados pelo `.gitignore`. Não commitar `.aux`, `.log`, `.pdf` da raiz.
